@@ -10,7 +10,7 @@ type Props = {
 const {works} = Astro.props
 const unfeaturedWorks = works
     .filter(work => !work.data.featured)
-    .sort((a, b) => b.data.date - a.data.date);
+    .sort((a, b) => Number(b.data.date) - Number(a.data.date));
 ---
 
 <div class="m-auto 

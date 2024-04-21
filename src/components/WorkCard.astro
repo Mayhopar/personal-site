@@ -37,7 +37,7 @@ const {work} = Astro.props;
             rounded-bl-[8px]
             z-10">
                 
-                <Image src={work.data.preview1} width='140' height='140' quality='max' alt=''
+                <Image src={typeof work.data.preview1 === 'string' ? work.data.preview1 : ''} width='140' height='140' quality='max' alt=''
                 class="absolute \
                 left-0 \
                 right-0 \
@@ -57,7 +57,7 @@ const {work} = Astro.props;
                 duration-150 \
                 "/>
 
-                <Image src={work.data.preview2} width='140' height='140' quality='max' alt=''
+                <Image src={typeof work.data.preview2 === 'string' ? work.data.preview2 : ''} width='140' height='140' quality='max' alt=''
                 class="absolute \
                 left-0 \
                 right-0 \
@@ -77,7 +77,7 @@ const {work} = Astro.props;
                 duration-150 \
                 "/>
 
-                <Image src={work.data.preview3} width='140' height='140' quality='max' alt=''
+                <Image src={typeof work.data.preview3 === 'string' ? work.data.preview3 : ''} width='140' height='140' quality='max' alt=''
                 class="absolute \
                 left-0 \
                 right-0 \

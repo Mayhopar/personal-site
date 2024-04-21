@@ -11,7 +11,7 @@ const {works} = Astro.props
 
 const featuredWorks = works
     .filter(work => work.data.featured)
-    .sort((a, b) => a.data.date - b.data.date);
+    .sort((a, b) => Number(a.data.date) - Number(b.data.date));
 
 ---
 
