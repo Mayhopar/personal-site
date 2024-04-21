@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+const { lsrc, lalt, msrc, malt, rsrc, ralt, caption, customClass } = Astro.props;
+---
+
+<div class={'doubleImage \
+mt-7 \
+grid  \
+grid-cols-3  \
+gap-x-4 \
+max-w-5xl \
+mx-auto \
+2xl:max-w-[1340px] \
+2xl:mt-10'
++ ' ' + customClass}>
+    <Image
+        src={lsrc}
+        alt={lalt}
+        loading="lazy"
+        format="webp"
+        class='col-start-1 col-end-2 rounded-[1vw] border-[1px] border-gray-100 !my-0'  
+    />
+
+    <Image
+        src={msrc}
+        alt={malt}
+        loading="lazy"
+        format="webp"
+        class='col-start-2 col-end-3 rounded-[1vw] border-[1px] border-gray-100 !my-0'  
+    />
+
+    <Image
+        src={rsrc}
+        alt={ralt}
+        loading="lazy"
+        format="webp"
+        class='col-start-3 col-end-4 rounded-[1vw] border-[1px] border-gray-100 !my-0'  
+    />
+</div>
+<figcaption class="mx-auto
+    max-w-[640px] 
+    2xl:max-w-[768px]">
+        {caption}
+</figcaption>

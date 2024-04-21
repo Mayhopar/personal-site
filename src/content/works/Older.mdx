@@ -1,0 +1,580 @@
+---
+featured: false
+image: ./images/Glowgreen/Cover.jpg
+title: Earlier
+year: '2013–2020'
+role: Sales, Designer, Lead
+lead: Dashboard MVP for energy offsetting company
+date: 2024-04-09
+
+preview1: '/src/content/works/images/misc/preview04.png'
+preview2: '/src/content/works/images/misc/preview05.png'
+preview3: '/src/content/works/images/misc/preview06.png'
+---
+
+import { Image } from 'astro:assets';
+import SingleImage from '../../components/SingleImage.astro';
+import DoubleImage from '../../components/DoubleImage.astro';
+import SingleVideo from '../../components/SingleVideo.astro';
+import ImageVideo from '../../components/ImageVideo.astro';
+import DoubleVideo from '../../components/DoubleVideo.astro';
+import TrippleImage from '../../components/TrippleImage.astro';
+
+import pd_e_1 from './images/Older/pd-experments/1-Template-Onboarding.mp4';
+import pd_e_2 from './images/Older/pd-experments/2-Social-Proof.gif';
+import pd_e_3 from './images/Older/pd-experments/3-Invite.gif';
+import pd_e_4 from './images/Older/pd-experments/4-downdrade.gif';
+import pd_e_5 from './images/Older/pd-experments/5-professional-service.gif';
+import pd_e_6 from './images/Older/pd-experments/6-Doc-Conversion.gif';
+import pd_e_7 from './images/Older/pd-experments/7-upsell.gif';
+import pd_e_8 from './images/Older/pd-experments/8-upsell-dialog.jpg';
+import pd_e_9 from './images/Older/pd-experments/9-upsell-dialog.jpg.jpg';
+import pd_e_10 from './images/Older/pd-experments/10-upsell-dialog.jpg';
+
+import pd_o_1 from './images/Older/pd-onboarding/1-pd-onboarding.png';
+import pd_o_2 from './images/Older/pd-onboarding/2-pd-onboarding.png';
+import pd_o_3 from './images/Older/pd-onboarding/3-pd-onboarding.png';
+import pd_o_4 from './images/Older/pd-onboarding/4-pd-onboarding.png';
+import pd_o_5 from './images/Older/pd-onboarding/5-pd-onboarding.png';
+
+import dc_ds_1 from './images/Older/dc-redesign/1-overview.png';
+import dc_ds_2 from './images/Older/dc-redesign/2-styles.png';
+import dc_ds_3 from './images/Older/dc-redesign/3-styles-2.png';
+import dc_ds_4 from './images/Older/dc-redesign/4-pallete.jpg';
+import dc_ds_5 from './images/Older/dc-redesign/5-icon.png';
+import dc_ds_6 from './images/Older/dc-redesign/6-icon.png';
+import dc_ds_7 from './images/Older/dc-redesign/7-pattern.png';
+import dc_ds_8 from './images/Older/dc-redesign/8-pattern.png';
+import dc_ds_9 from './images/Older/dc-redesign/9-overview.png';
+import dc_ds_10 from './images/Older/dc-redesign/10-whitespace.png';
+import dc_ds_11 from './images/Older/dc-redesign/11-margins.png';
+import dc_ds_12 from './images/Older/dc-redesign/12-margins.png';
+import dc_ds_13 from './images/Older/dc-redesign/13-header-pattern.png';
+import dc_ds_14 from './images/Older/dc-redesign/14-tablets.png';
+
+import dc_app_1 from './images/Older/dc-app/2-old-vendor-list.jpg';
+import dc_app_2 from './images/Older/dc-app/3-new-vencdor-list.mp4';
+import dc_app_3 from './images/Older/dc-app/5-old-vendor.jpg';
+import dc_app_4 from './images/Older/dc-app/6-new-vendor.mp4';
+import dc_app_5 from './images/Older/dc-app/7-old-cart.gif';
+import dc_app_6 from './images/Older/dc-app/8-new-cart.gif';
+import dc_app_7 from './images/Older/dc-app/11-old-order-status.jpg';
+import dc_app_8 from './images/Older/dc-app/12-new-order-status.jpg';
+import dc_app_9 from './images/Older/dc-app/13-reorder-1.jpg';
+import dc_app_10 from './images/Older/dc-app/14-reorder-2.jpg';
+import dc_app_11 from './images/Older/dc-app/15-takeaway-framer.mp4';
+import dc_app_12 from './images/Older/dc-app/16-takeaway.gif';
+import dc_app_13 from './images/Older/dc-app/17-in-general.jpg';
+
+import dc_vk_0 from './images/Older/dc-vk/1-overview.mp4';
+import dc_vk_1 from './images/Older/dc-vk/1-map.png';
+import dc_vk_2 from './images/Older/dc-vk/2-restraunts.png';
+import dc_vk_3 from './images/Older/dc-vk/3-vendor.png';
+import dc_vk_4 from './images/Older/dc-vk/4-cart.png';
+import dc_vk_5 from './images/Older/dc-vk/5-checkout.png';
+import dc_vk_6 from './images/Older/dc-vk/6-success.png';
+import dc_vk_7 from './images/Older/dc-vk/7-mobile.png';
+import dc_vk_8 from './images/Older/dc-vk/8-layout.png';
+
+import appetit_1 from './images/Older/appetit/1-bag.jpg';
+import appetit_2 from './images/Older/appetit/2-explanation.jpg';
+import appetit_3 from './images/Older/appetit/3-logo.mp4';
+import appetit_4 from './images/Older/appetit/4-jacket.jpg';
+import appetit_5 from './images/Older/appetit/5-bag.jpg';
+import appetit_6 from './images/Older/appetit/6-explanation.jpg';
+import appetit_7 from './images/Older/appetit/7-typo.jpg';
+import appetit_8 from './images/Older/appetit/8-app.jpg';
+import appetit_9 from './images/Older/appetit/9-guides.jpg';
+import appetit_10 from './images/Older/appetit/10-final.jpg';
+
+import flamp_1 from './images/Older/flamp/1-Flamp-Main.mp4';
+import flamp_2 from './images/Older/flamp/2-Flamp-Search.mp4';
+import flamp_3 from './images/Older/flamp/3-Flamp-Company.mp4';
+import flamp_4 from './images/Older/flamp/4-Chat.png';
+import flamp_5 from './images/Older/flamp/5-Feed.png';
+import flamp_6 from './images/Older/flamp/6-Blog.png';
+import flamp_7 from './images/Older/flamp/7-Company.png';
+import flamp_8 from './images/Older/flamp/8-layouts.gif';
+import flamp_9 from './images/Older/flamp/9-Grid.jpg';
+import flamp_10 from './images/Older/flamp/10-overview.jpg';
+
+import landy_1 from './images/Older/landy/1-flow.jpg';
+import landy_2 from './images/Older/landy/2-variations.mp4';
+import landy_3 from './images/Older/landy/3-flow.jpg';
+import landy_4 from './images/Older/landy/4-logo.jpg';
+import landy_5 from './images/Older/landy/5-logo.jpg';
+import landy_6 from './images/Older/landy/6-visual.jpg';
+import landy_7 from './images/Older/landy/7-visual.jpg';
+import landy_8 from './images/Older/landy/8-visual.jpg';
+import landy_9 from './images/Older/landy/9-dashboards.gif';
+import landy_10 from './images/Older/landy/10-new-campaign.jpg';
+import landy_11 from './images/Older/landy/11-ab.gif';
+import landy_12 from './images/Older/landy/12-split.gif';
+import landy_13 from './images/Older/landy/13-dashboard.jpg';
+import landy_14 from './images/Older/landy/14-analytics.mp4';
+import landy_15 from './images/Older/landy/15-final.jpg';
+
+import leb_1 from './images/Older/lebedev/1-scheme.jpg';
+import leb_2 from './images/Older/lebedev/2-floor.jpg';
+import leb_3 from './images/Older/lebedev/3-stoloto.jpg';
+import leb_4 from './images/Older/lebedev/4-stoloto.jpg';
+import leb_5 from './images/Older/lebedev/5-yandex.jpg';
+import leb_6 from './images/Older/lebedev/6-yandex.jpg';
+import leb_7 from './images/Older/lebedev/7-yandex.jpg';
+import leb_8 from './images/Older/lebedev/8-yandex.jpg';
+import leb_9 from './images/Older/lebedev/9-yandex.jpg';
+import leb_10 from './images/Older/lebedev/10-yandex.jpg';
+
+import safari from './images/Older/safari/How_would_I_improve_Safari.mp4';
+
+#### <span class="text-gray-700"> The Beginning of my career was highlighted by my work at Eastern Europe's most prominent companies.</span>
+
+## Pandadoc
+
+PandaDoc is an online platform that simplifies the process of creating, signing, and managing legal documents and contracts without the need for extensive legal expertise. I was a growth designer there.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    ### Onboarding
+    
+    Customers have complex needs and the product must face it. It's great when a single product can cover all the needs, but it also makes the product complicated to understand. This is what happened to PandaDoc, and the necessity for a broad onboarding was obvious.
+
+    We wanted to build an onboarding that would increase users' activation continuously by serving them at different stages of their maturity within the product.
+
+    The business development team provided the data about user groups to me. My job was to figure out how to tell them "stories" about the product and the features in an appropriate way, as well as how to integrate this "learning center" into the product as a component gracefully.
+    
+    <SingleImage alt='' src={pd_o_1}/>
+
+    I came into a concept where we have separated tours with several specific learning guides, and the entry point which can be shown depending on the situation. For example, if a user duplicates a document and sends it several times, we can introduce templates to her. thus providing non-aggressive and task-related support. In other situations, onboarding can be reached from the navigation menu.
+
+    <DoubleImage lalt='' lsrc={pd_o_2} ralt='' rsrc={pd_o_3}/>
+
+    From analyzing users' behavior and talking to our support and sales teams I learned that the user is overwhelmed by information right after the signup. So I made a concept with three easy steps: 1. Learning how to prepare and send the document. 2. Seing what the client will get. 3. Checking the analytics after the document completion. Thus providing easy-to-learn lessons with a short feedback loop.
+
+    Also, I used human touch as I knew that it grows our user's success across the product. And used tooltip guides to prevent users from clicking around and quitting the tour, as they tended to do in our previous onboarding. Progress bars and step counters to increase predictability weren't forgotten as well.
+    
+    <SingleImage alt='' src={pd_o_4}/>
+
+    During this task, I made 9 different onboarding flows which were tested within the company with the units' leads, support, sales, and CSO teams. During that time I got important feedback to add 2 more flows, that cover different user expectations and got a lot of ideas for for this onboarding as an ultimate learning center.
+
+    When the design phase was done our unit changed the vector as we realized, that we didn't have enough time to implement the onboarding before the next big project. So we decided to cut additional flows and release the shortest one.
+
+    <SingleImage alt='' src={pd_o_5}/>
+
+    ### Experiments
+
+    <SingleVideo alt='' src={pd_e_1}/>
+    <SingleImage alt='' src={pd_e_2}/>
+    <SingleImage alt='' src={pd_e_3}/>
+    <SingleImage alt='' src={pd_e_4}/>
+    <SingleImage alt='' src={pd_e_5}/>
+    <SingleImage alt='' src={pd_e_6}/>
+    <SingleImage alt='' src={pd_e_7}/>
+    <DoubleImage lalt='' lsrc={pd_e_8} ralt='' rsrc={pd_e_9}/>
+    <SingleImage alt='' src={pd_e_10}/>
+
+  </div>
+</details>
+
+---
+
+## Delivery Club App Redesign
+
+Delivery Club is a Russian food delivery service. I got there after the project I was working on was acquired by Mail.ru Group and became in charge of all of the product design. We pushed the project from a $10,000,000 valuation to $1,000,000,000 in a year. 
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+  **App Redesign**
+
+  Problem
+  The users couldn’t find restaurants and meals, the flow was unpredictable, there were no order status, delivery service, and support was poor. They usually ordered in big and well-known fast food restaurants, as the product was associated with junk food-oriented apps. This slowed down the app's growth.
+  
+  <br/>
+  ### Approach
+  * Simplify the range of restaurants and meals reducing the order time;
+  * Increase user retention by adding a loyalty program, making the experience clear, and predictable;
+  * Experiment with new functions, and A/B test as much as possible.
+  
+  <br/>
+  <div class="archive-columns">
+    <div>
+      ### Improved
+      * List of restaurants
+      * Restaurant screen and menu
+      * Cart and checkout
+      * Order status
+      * Reorder and favorite restaurants
+      * Takeaway
+      * Other
+    </div>
+    <div>
+    ### Result
+    * Number of loyal users ↑×2
+    * Number of their average orders ↑×2
+    * Conversion ↑34%
+    * Retention ↑23%
+    * Crash rate ↓83%
+    * 15 iOS versions
+    * 12 Android versions
+    </div>
+  </div>
+
+  <br/>
+
+  ### List of Restaurants
+  
+  <ImageVideo lalt='' lsrc={dc_app_1} rsrc={dc_app_2} />
+
+  Focus on restaurants. For big cities we photographed restaurant meals, thus users could search faster for a specific cuisine. The emphasis was shifted from a brand to its food. Address, search, filters – all in one place. To facilitate user searching and ordering, the restaurant product range was increased. As some users ordered in the same restaurants each time, we added the Add to Favourite function to search faster. When the user address and location were different, the notification appeared. This way we reduced the chances of a wrong address delivery.
+
+  <br/>
+
+  ### Restaurant Screen and Menu
+
+  <ImageVideo lalt='' lsrc={dc_app_3} rsrc={dc_app_4} />
+
+  The cart was hardly noticeable at the top of the screen. The menu was made of dropdowns inside of dropdowns, so the search was difficult. Navigation looked like a different screen, so when the users pressed Back to go to the top of the screen, they left the restaurant instead.
+
+  We added an option to repeat the previous order. The menu became a continuous list with a function to move to its specific parts using header tabs. The cart was under the thumb with useful information, if needed.
+
+  <br/>
+
+  ### Cart & Checkout
+
+  <DoubleImage lalt='' lsrc={dc_app_5} ralt='' rsrc={dc_app_6} />
+
+  The cart had no images, which was a problem for people, who tried to order non-Russian cuisine. They simply forgot, what the item was, and couldn’t identify it by the title. Moreover, checkout took too long and was ambiguous.
+
+  The new cart had images, and users loved it. Also, it had a restaurant’s logo for the users, who came to cart via a link or reorder. Logo helped them return to a menu, and add other items. Checkout was cleaned up, and new payment methods were added. Of course, our goal was to merge the cart and checkout, but we had to implement it through evolution, not revolution.
+
+  <br/>
+
+  ### Order Status
+
+  <DoubleImage lalt='' lsrc={dc_app_7} ralt='' rsrc={dc_app_8} />
+
+  The screen didn’t give users much useful information, so they felt frustrated about their order status. It made the experience unpleasant and was one of the reasons of re-ordering lack.
+
+  As we couldn’t technically provide a position of the order on the map, we showed the order info again and added the Contact support button. Thus, we reduced wrong address delivery even more, because the users could contact support, and cancel the order. Also, there were statuses like «Order is being prepared», and «Order is on the way», so the users felt, that everything was under control.
+
+  <br/>
+
+  ### Reorder
+
+  <DoubleImage lalt='' lsrc={dc_app_9} ralt='' rsrc={dc_app_10} />
+
+  Despite helping the users to discover new places, there was a group, who ordered the same items in the same places. To improve their experience, we added a reordering feature. We created an order history screen, where all the carts had a list of ordered items and a reorder button.
+
+  When the user pressed Reorder, they proceeded to a review screen with the address, and the list of items. As for the previous time, the user could order from a different place, and some items could be out of stock in the restaurant. If the user pressed OK, he proceeded to a cart, where he could go back to the menu, and add more items.
+
+  <br/>
+
+  ### Takeaway
+
+  <ImageVideo lalt='' lsrc={dc_app_12} rsrc={dc_app_11} reverse='true' />
+
+  The team wanted to make it without a map, due to speed, and easiness of development, While, my concern was the low customers’ willingness to use it. That’s why, I made a prototype, that convinced the team to implement a map.
+
+  To invite users to check the feature, we added a takeaway thumbnail on the main screen and provided with a simple onboarding. The implementation was simpler, as we didn’t draw the path, because we wanted to test the feature in its basics. It was released, but after 3 months, the feature was shut down due to low usage.
+
+  <br/>
+
+  ### In General
+
+  <SingleImage alt='' src={dc_app_13}/>
+
+  Also, we added login via mobile number, improved address selection, and added favorite addresses there. As the users mainly ordered in 2-3 places, we redesigned the user’s profile. Also, we made the look of some screens corresponding with the new design, and the whole communication friendlier. In total, we redesigned around 700 screens of iOS mobile app, Android mobile, and tablet apps. The app was repeatedly featured in the App Store and Google Play.
+
+  </div>
+</details>
+
+---
+
+## Delivery Club Design System
+
+As the process of development was rapid, the need for «building blocks» was obvious. Also, it was clear that when the design team increases it will be harder to maintain a consistent look and to keep the same development speed. That's why in my spare time I made the design system.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <br/>
+    ### Basics
+
+    <SingleImage alt='' src={dc_ds_1} caption="Styleguide"/>
+
+    <DoubleImage lalt='' lsrc={dc_ds_2} ralt='' rsrc={dc_ds_3}/>
+
+    The height of the main text was 8px. Other styles were obtained by upscaling and downscaling it using the Perfect Fourth ratio and then tweaked to look well in the UI with the 8px paradigm in mind.
+
+    Every case of text style usage was integrated into working files, to create limitations for keeping styles coherently over time. Also, to make their usage easier and more adaptable for the new team.
+
+    <SingleImage alt='' src={dc_ds_4} caption="Colorblind friendly palette"/>
+
+    We needed a contrast color palette to minimize color decisions. For better understanding, I researched cartographers and graphics data papers. This way main, light, and dark colors were picked in the CIE-Lab color space using a chroma.js picker. Here, each column was interpolated vertically with Chroma.js Color Scale Helper, and then the whole palette was interpolated horizontally to balance color distribution.
+
+    <DoubleImage lalt='' lsrc={dc_ds_5} ralt='' rsrc={dc_ds_6}/>
+
+    72 icons in total. Each has a 24×24 px base, 20×20 px safe zone, and 2 px grid. 96×96 icons were used in communication. Each one had a grid and no safety zone.
+
+    <DoubleImage lalt='' lsrc={dc_ds_7} ralt='' rsrc={dc_ds_8}/>
+
+    Patterns made the product look less boring. They had three levels of detailing: 1) Background color, which defines mood. Green – everything is fine, yellow – something went wrong, and red (we never used it) – everything is bad; 2) Pattern style that reflects its context usage i.e. food, delivery, etc. 3) An overlay illustration (optional) made the message more precise.
+
+    Beauty was sacrificed to speed up the production of the tiles so all illustrations were applied onto an 8px grid.
+
+    <br/>
+    ### Components & Layouts
+
+    <SingleImage alt='' src={dc_ds_9} caption="Components guide"/>
+
+    <SingleImage alt='' src={dc_ds_10} caption="Components guide"/>
+    All components were made to maintain the same optical margin everywhere and double it if needed to maintain constant rhythm over the app.
+
+    <DoubleImage lalt='' lsrc={dc_ds_11} ralt='' rsrc={dc_ds_12}/>
+
+    I took the concept of a list as a basis, so all the elements are components of the list. This lets most of the screen be multivariate and modular without worrying about wrong margins.
+
+    <SingleImage alt='' src={dc_ds_13} caption="Components guide"/>
+
+    Besides list screens, we had screens to communicate with the user. Restaurants translated their voices with food photos, and we translated our voices via our patterns, colors, and illustrations.
+
+    <SingleImage alt='' src={dc_ds_14} caption="Components guide"/>
+
+    All above was applied to Android tablets as well.
+
+  </div>
+</details>
+
+---
+
+## Delivery Club VK App
+
+A lot of companies had their pages on VK – a popular Eastern European social network and could offer their services right from there. As there were no food delivery apps, we quickly created one to provide with better food delivery experience for VK users.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <br/>
+    <SingleVideo src={dc_vk_0} caption="Besides social network features VK provides a wide range of multimedia: music, TV shows, games, etc."/>
+
+    The users could watch shows, play games, chat with friends, as well as order food, and get notifications about order status right in VK. With this project, we got a chance to engage new users and overhead competitors on the new platform.
+
+    <br/>
+    ### Before Starting
+
+    Every VK app is integrated via iframe, so we decided to make it light without relying on additional JS much. Also, we were making it responsive.
+
+    My intent with this project was to do design research for the upcoming Delivery Club website redesign. I tried to extend a mobile design system by adapting it to bigger screens, relying on existing components.
+
+    <br/>
+    ### How would we get users
+
+    Both VK and Delivery Club were part of the Mail.Ru ecosystem, so getting new users was just a matter of promotion in the right user segments inside VK. Our partner restaurant could get their version of the app with their menu only, so we could obtain users from their pages as well.
+
+    <br/>
+    ### The Flow
+
+    A typical user flow was: 1) Set an address → 2) Choose a restaurant → 3) Pick items → 4) Inspect a cart → 5) Checkout → 6) Success → 7) Get order status notification. We wanted to rebuild it and tweak it if needed.
+
+    <br/>
+    ### Setting an Address
+
+    <SingleImage alt='' src={dc_vk_1} caption="First sreen of the app"/>
+
+    By default, the users are to type the address, because we assumed that letting the app check their geo position via native dialog could scare them. Also, they have an option to choose the address on the map.
+
+    <br/>
+    ### Restaurant Selection
+
+    <SingleImage alt='' src={dc_vk_2} caption="Restaurants list screen"/>
+    
+    The restaurant list was formed by algorithms on the backend across the product. This way, users saw the best restaurants first. Criteria were rating, delivery time, failure rate, etc.
+
+    <br/>
+    ### Restaurant Screen & Meal Selection
+
+    <SingleImage alt='' src={dc_vk_3} caption="Restaurant and its menu"/>
+
+    Here, we used a big photo of restaurant meals to provide the users with more information about the place. Other information from the mobile app version was available as well.
+
+    To navigate the menu, the user could scroll it or reach its specific parts with an index from the left side of the list. The user could add more items to the cart right from the menu list or open an item cart with additional information, and add it from there.
+
+    <br/>
+    ### Inspecting the Cart
+
+    <SingleImage alt='' src={dc_vk_4} caption="Cart overlay"/>
+
+    The product director didn’t want to merge the cart with checkout. He found it too risky at that time. Thus, I coped with the task by adding the cart to the side of the screen, overlaying the content.
+
+    Doing so, we made the customer flow more consistent, because we didn’t separate their mental model of forming an order by two different screens. The user could form, and check the cart within a single context.
+
+    <br/>
+    ### Checkout
+
+    <SingleImage alt='' src={dc_vk_5} caption="Scheckout screen"/>
+
+    Here, we just copied everything from our mobile app checkout. My main focus was to figure out how everything should work on the web forms of the product, and what sizing should we use to stay consistent across all platforms.
+
+    <br/>
+    ### Success Screen & Notifications
+
+    <SingleImage alt='' src={dc_vk_6} caption="Scheckout screen"/>
+
+    After placing an order, the user gets a success screen with instructions. There are notifications right from the VK interface. This is very handy, especially if the user is watching shows on VK, for example.
+
+    <br/>
+    ### Design Process
+
+    <SingleImage alt='' src={dc_vk_7} caption="Mobile screens"/>
+
+    The app could be opened on mobile as well. Thus, everything was made responsive matching the good old 8 px paradigm.
+
+    <SingleImage alt='' src={dc_vk_8} caption="Layout grids"/>
+
+  </div>
+</details>
+
+---
+
+## Flamp
+
+Flamp is a review service that is popular in Russian regions. To gain more audience in Moscow and Saint-Petersburg, the company decided to develop a new brand and digital appearance. I was lucky to design a new website.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <br/>
+    <SingleVideo src={flamp_1} caption="Main page"/>
+
+    <SingleVideo src={flamp_2} caption="Search results"/>
+
+    <SingleVideo src={flamp_3} caption="Company's page"/>
+
+    <SingleImage alt='' src={flamp_4} caption="The users could chat with each other, and with companies. For example, they could book a table in a restaurant or a seat in a barbershop."/>
+
+    <SingleImage alt='' src={flamp_5} caption="If the user had a company on Flamp, he could easily reply to his customers right from the feed."/>
+
+    <DoubleImage lalt='' lsrc={flamp_6} ralt='' rsrc={flamp_7} caption="Company blog. And hiring page"/>
+
+    <DoubleImage lalt='' lsrc={flamp_9} ralt='' rsrc={flamp_9} caption="Layouts. 56px, 80px, 272px modules and how they fit into the grid."/>
+
+    <SingleImage alt='' src={flamp_10} caption="Screens overview"/>
+
+  </div>
+</details>
+
+---
+
+## Landy
+
+There must be personalized communication with every user. However, a single landing page provides with limited communication, so a message may be misunderstood. Thus the company may lose its potential customers.
+
+To help companies communicate better, we have built Landy, which lets business owners clone, and customize their landing pages, and put their growth on autopilot, by suiting specific variations to a specific group of visitors via AI.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <br/>
+    <DoubleImage lalt='' lsrc={landy_1} ralt='' rsrc={landy_3}/>
+
+    <br/>
+    ### Logo
+
+    <DoubleImage lalt='' lsrc={landy_4} ralt='' rsrc={landy_5}/>
+    <TrippleImage lalt='' lsrc={landy_6} malt='' msrc={landy_7} ralt='' rsrc={landy_8} customClass="!mt-4"/>
+
+    We were building an automated assistant-like tool, kind of a robot. Thus, we chose a robot as the main metaphor. As long as it had to deal with landing pages, and decide where to land a user, we picked the name «Landy». We made a logo and built all communication around this metaphor. Typography reflects the idea of constantly changing elements on web pages.
+
+    <br/>
+    ### Web App
+
+    Landy founder Dmitry Tsepelev had a marketing background. He also researched existing solutions and interviewed its users. That’s why his view on MVP was clear and accurate
+
+    <SingleImage alt='' src={landy_9} caption='We changed the main page 3 times to make it more clear. Finally, we put there an onboarding experience which reduced confusion drastically.'/>
+
+    User pastes a link to the website → Duplicates it, and creates variations → Sets goals and launches the campaign. Landy: *Learns about its users, and grows the conversion*
+
+    <SingleImage alt='' src={landy_10} caption='We started with a built-in page editor but later we added, and split URL feature.'/>
+
+    <DoubleImage lalt='' lsrc={landy_11} ralt='' rsrc={landy_12} caption="Variations editor. The user could create page variations, and change elements in the editor. Split URL campaign interface. The user simply pastes URLs, sets goals, and gets the code."/>
+
+    <SingleImage alt='' src={landy_13} caption='After a campaign is created, the user can see it along with stats on the dashboard.'/>
+
+    <SingleVideo src={landy_14} caption="Clicking on the row users would get onto campaign detailed overview page."/>
+
+    <br/>
+    ### YC Open Hours
+
+    Landy was selected for the YC Open Office Hours program, and we were lucky to get Sam Altman as an expert. While it was not the main YC program, it is still around 1000 startups applying with only 40 selected. That’s why we were so thrilled to get such an opportunity and happy to receive positive feedback from such an experienced expert like Sam.
+
+    <SingleImage alt='' src={landy_15} caption='Sam and Dmitry on a call.'/>
+
+    Despite the fact, that in the end, we found automated personalization is still not the thing that is badly wanted by every other company, it was a great journey from all possible prospectives. We learned a lot about building a product from scratch, communicating with users, collecting feedback, marketing our product, iterating, and making a design decision based on collected data.
+  </div>
+  </details>
+
+---
+
+## Appetit
+
+Food delivery company from scratch.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <br/>
+    <SingleImage alt='' src={appetit_1} caption=''/>
+
+    <br/>
+    ### Identity
+
+    <ImageVideo lalt="" lsrc={appetit_2} rsrc={appetit_3} reverse="true"/>
+    <DoubleImage lalt="" lsrc={appetit_4} ralt="" rsrc={appetit_5} customClass="!mt-4"/>
+
+    <br/>
+    ### Typography
+
+    <DoubleImage lalt="" lsrc={appetit_6} ralt="" rsrc={appetit_7}/>
+
+    <br/>
+    ### App
+
+    <SingleImage alt='' src={appetit_8} caption=''/>
+
+    <SingleImage alt='' src={appetit_9} caption='' customClass="!mt-4"/>
+
+    <SingleImage alt='' src={appetit_10} caption='Acquired by Mail.ru Group' customClass="!mt-4"/>
+
+
+    </div>
+  </details>
+
+---
+
+## Lebedev Studio
+
+Food delivery company from scratch.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <br/>
+    ### Moscow Underground Floor Navigation
+    <DoubleImage lalt="" lsrc={leb_1} ralt="" rsrc={leb_2}/>
+
+    <br/>
+    ### Stoloto Quick Games
+
+    <DoubleImage lalt="" lsrc={leb_3} ralt="" rsrc={leb_4}/>
+
+    <br/>
+    ### Yandex Marketing Materials
+
+    <DoubleImage lalt="" lsrc={leb_5} ralt="" rsrc={leb_6}/>
+    <DoubleImage lalt="" lsrc={leb_7} ralt="" rsrc={leb_8} customClass="!mt-4"/>
+    <DoubleImage lalt="" lsrc={leb_9} ralt="" rsrc={leb_10} customClass="!mt-4"/>
+
+    </div>
+  </details>

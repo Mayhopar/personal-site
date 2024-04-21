@@ -1,0 +1,453 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Post from "../../layouts/Post.astro";
+import WorkPost from "../../components/WorkPost.astro";
+import { Image } from "astro:assets"
+
+export const getStaticPaths = async () => {
+    const works = await getCollection("works");
+    const paths = works.map(work => {
+        return {
+            params: {
+                slug: work.slug
+            },
+            props: {
+                work
+            }
+        }
+    })
+    return paths;
+}
+
+type Props = {
+    work: CollectionEntry<"works">
+}
+    
+const {work} = Astro.props;
+const {Content} = await work.render();
+---
+
+<Post title={work.data.title}>
+    <WorkPost>
+        {work.data.featured ? (
+            <article class="w-full
+            prose-gray 
+            max-w-none
+            pb-[20vh]"
+            >
+                <div class="imageDescription">
+                    <Image class="rounded-xl \
+                    mb-0 \
+                    mt-0 \
+                    aspect-thumbnail \
+                    object-cover \
+                    w-full \
+                    max-w-5xl \
+                    mx-auto \
+                    \
+                    2xl:max-w-[1340px]"
+                    src={work.data.image}
+                    alt={work.data.title}
+                    width={1920}
+                    loading="lazy"
+                    format="webp"
+                    transition:name={"cover:" + work.data.title}
+                    />
+                    <div class="flex 
+                    flex-col
+                    prose 
+                    max-w-[640px]
+                    mx-auto 
+                    relative
+                    gap-x-2
+                    
+                    2xl:prose-xl
+                    2xl:max-w-[768px]">
+                        <h1 class="title 
+                        text-gray-900
+                        w-fit
+                        mb-0 
+                        mt-6 
+                        2xl:mb-0
+                        2xl:mt-6
+                        font-semibold"
+                        transition:name={"title:" + work.data.title}
+                        >
+                            {work.data.title}
+                        </h1>
+                        <p class="description
+                        w-fit
+                        mt-[4px]
+                        mb-0
+                        2xl:mt-1
+                        2xl:mb-0"
+                        transition:name={"desc:" + work.data.title}
+                        >
+                            {work.data.description}
+                        </p>
+                        <p class="role
+                        w-fit
+                        mt-[2px]
+                        mb-0
+                        text-gray-400 
+                        text-sm
+                        leading-5
+                        2xl:my-0
+                        2xl:text-lg"
+                        transition:name={"role:" + work.data.title}
+                        >
+                            {work.data.role}
+                        </p>
+                        <p class="year
+                        grow-0
+                        text-gray-400
+                        text-xs
+                        w-fit
+                        my-0
+                        pt-[2.5px]
+                        
+                        lg:absolute
+                        lg:top-[27px]
+                        lg:right-[652px]
+                        lg:text-nowrap
+                        lg:text-right
+                        2xl:text-sm
+                        2xl:m-0
+                        2xl:top-[26px]
+                        2xl:right-[782px]
+                        "
+                        transition:name={"year:" + work.data.title}
+                        >
+                            {work.data.year}
+                        </p>
+                    </div>
+                </div>
+                <div class="prose
+                article-content
+                2xl:prose-xl
+                max-w-none
+                mx-auto
+                pt-16
+
+                [&>lead]:mx-auto
+                [&>lead]:max-w-[640px]
+                2xl:[&>lead]:max-w-[768px]
+
+                [&>h1]:mx-auto
+                [&>h1]:max-w-[640px]
+                2xl:[&>h1]:max-w-[768px]
+
+                [&>h2]:mx-auto
+                [&>h2]:max-w-[640px]
+                2xl:[&>h2]:max-w-[768px]
+
+                [&>h3]:mx-auto
+                [&>h3]:max-w-[640px]
+                2xl:[&>h3]:max-w-[768px]
+
+                [&>h4]:mx-auto
+                [&>h4]:mb-[68px]
+                [&>h4]:max-w-[640px]
+                2xl:[&>h4]:max-w-[768px]
+
+                [&>p]:mx-auto
+                [&>p]:max-w-[640px]
+                2xl:[&>p]:max-w-[768px]
+
+                [&>a]:mx-auto
+                [&>a]:max-w-[640px]
+                2xl:[&>a]:max-w-[768px]
+
+                [&>blockquote]:mx-auto
+                [&>blockquote]:max-w-[640px]
+                2xl:[&>blockquote]:max-w-[768px]
+
+                [&>figure]:mx-auto
+                [&>figure]:max-w-[640px]
+                2xl:[&>figure]:max-w-[768px]
+
+                [&>figcaption]:mx-auto
+                [&>figcaption]:max-w-[640px]
+                2xl:[&>figcaption]:max-w-[768px]
+
+                [&>strong]:mx-auto
+                [&>strong]:max-w-[640px]
+                2xl:[&>strong]:max-w-[768px]
+
+                [&>em]:mx-auto
+                [&>em]:max-w-[640px]
+                2xl:[&>em]:max-w-[768px]
+
+                [&>code]:mx-auto
+                [&>code]:max-w-[640px]
+                2xl:[&>code]:max-w-[768px]
+
+                [&>pre]:mx-auto
+                [&>pre]:max-w-[640px]
+                2xl:[&>pre]:max-w-[768px]
+
+                [&>ol]:mx-auto
+                [&>ol]:max-w-[640px]
+                2xl:[&>ol]:max-w-[768px]
+
+                [&>ul]:mx-auto
+                [&>ul]:max-w-[640px]
+                2xl:[&>ul]:max-w-[768px]
+
+                [&>li]:mx-auto
+                [&>li]:max-w-[640px]
+                2xl:[&>li]:max-w-[768px]
+
+                [&>table]:mx-auto
+                [&>table]-[640px]
+                2xl:[&>tablew-[768px]
+
+                [&>thead]:mx-auto
+                [&>thead]-[640px]
+                2xl:[&>theadw-[768px]
+
+                [&>tr]:mx-auto
+                [&>tr]:max-w-[640px]
+                2xl:[&>tr]:max-w-[768px]
+
+                [&>th]:mx-auto
+                [&>th]:max-w-[640px]
+                2xl:[&>th]:max-w-[768px]
+
+                [&>td]:mx-auto
+                [&>td]:max-w-[640px]
+                2xl:[&>td]:max-w-[768px]
+
+                [&>img]:mx-auto
+                [&>img]:max-w-[640px]
+                [&>img]:rounded-md
+                [&>img]:mt-6
+                [&>img]:mb-0
+                [&>p>img]:rounded-md
+                [&>p>img]:mt-7
+                [&>p>img]:mb-0
+                2xl:[&>img]:max-w-[768px]
+                2xl:[&>img]:mt-10
+                2xl:[&>img]:mb-0
+                2xl:[&>p>img]:rounded-md
+                !2xl:[&>p>img]:mt-9
+                2xl:[&>p>img]:mb-0
+
+                [&>video]:mx-auto
+                [&>p>video]:mt-0
+                [&>video]:mt-7
+                [&>video]:mb-0
+                [&>video]:max-w-[640px]
+                2xl:[&>video]:max-w-[768px]
+                2xl:[&>video]:mt-10
+                2xl:[&>video]:mb-0
+                2xl:[&>p>video]:rounded-md
+                !2xl:[&>p>video]:mt-9
+                2xl:[&>p>video]:mb-0
+
+                [&>hr]:mx-auto
+                [&>hr]:max-w-[640px]
+                2xl:[&>hr]:max-w-[768px]
+
+                [&>details]:mx-auto
+                [&>details]:max-w-[640px]
+                2xl:[&>details]:max-w-[768px]
+
+                prose-p:text-gray-600
+                
+                prose-ul:m-0"
+                >
+                    <Content/>
+                </div>
+            </article>
+        ) : (
+            <article class="w-full
+            prose-gray 
+            max-w-none
+            pb-[20vh]"
+            >
+                <div class="imageDescription">
+                    
+                    <div class="flex 
+                    flex-col
+                    prose 
+                    max-w-[640px]
+                    mx-auto 
+                    relative
+                    gap-x-2
+                    
+                    2xl:prose-xl
+                    2xl:max-w-[768px]">
+                        <h1 class="title 
+                        text-gray-900
+                        w-fit
+                        mb-0 
+                        mt-6 
+                        2xl:mb-0
+                        2xl:mt-6
+                        font-bold"
+                        
+                        >
+                            {work.data.title}
+                        </h1>
+                        <p class="description
+                        w-fit
+                        mt-[4px]
+                        mb-0
+                        2xl:mt-1
+                        2xl:mb-0"
+                        transition:name={"desc:" + work.data.title}
+                        >
+                            {work.data.description}
+                        </p>
+                        <p class="year
+                        grow-0
+                        w-fit
+                        text-gray-400
+                        text-xs
+                        my-0
+                        pt-[2.5px]
+                        
+                        lg:absolute
+                        lg:top-[27px]
+                        lg:right-[652px]
+                        lg:text-nowrap
+                        lg:text-right
+                        2xl:text-sm
+                        2xl:m-0
+                        2xl:top-[26px]
+                        2xl:right-[782px]
+                        "
+                        >
+                            {work.data.year}
+                        </p>
+                    </div>
+                </div>
+                <div class="prose
+                article-content
+                2xl:prose-xl
+                max-w-none
+                mx-auto
+                pt-16
+
+                [&>lead]:mx-auto
+                [&>lead]:max-w-[640px]
+                2xl:[&>lead]:max-w-[768px]
+
+                [&>h1]:mx-auto
+                [&>h1]:max-w-[640px]
+                2xl:[&>h1]:max-w-[768px]
+
+                [&>h2]:mx-auto
+                [&>h2]:max-w-[640px]
+                2xl:[&>h2]:max-w-[768px]
+
+                [&>h3]:mx-auto
+                [&>h3]:max-w-[640px]
+                2xl:[&>h3]:max-w-[768px]
+
+                [&>h4]:mx-auto
+                [&>h4]:mb-[68px]
+                [&>h4]:max-w-[640px]
+                2xl:[&>h4]:max-w-[768px]
+
+                [&>p]:mx-auto
+                [&>p]:mt-10
+                [&>p]:max-w-[640px]
+                2xl:[&>p]:max-w-[768px]
+
+                [&>a]:mx-auto
+                [&>a]:max-w-[640px]
+                2xl:[&>a]:max-w-[768px]
+
+                [&>blockquote]:mx-auto
+                [&>blockquote]:max-w-[640px]
+                2xl:[&>blockquote]:max-w-[768px]
+
+                [&>figure]:mx-auto
+                [&>figure]:max-w-[640px]
+                2xl:[&>figure]:max-w-[768px]
+
+                [&>figcaption]:mx-auto
+                [&>figcaption]:max-w-[640px]
+                2xl:[&>figcaption]:max-w-[768px]
+
+                [&>strong]:mx-auto
+                [&>strong]:max-w-[640px]
+                2xl:[&>strong]:max-w-[768px]
+
+                [&>em]:mx-auto
+                [&>em]:max-w-[640px]
+                2xl:[&>em]:max-w-[768px]
+
+                [&>code]:mx-auto
+                [&>code]:max-w-[640px]
+                2xl:[&>code]:max-w-[768px]
+
+                [&>pre]:mx-auto
+                [&>pre]:max-w-[640px]
+                2xl:[&>pre]:max-w-[768px]
+
+                [&>ol]:mx-auto
+                [&>ol]:max-w-[640px]
+                2xl:[&>ol]:max-w-[768px]
+
+                [&>ul]:mx-auto
+                [&>ul]:max-w-[640px]
+                2xl:[&>ul]:max-w-[768px]
+
+                [&>li]:mx-auto
+                [&>li]:max-w-[640px]
+                2xl:[&>li]:max-w-[768px]
+
+                [&>table]:mx-auto
+                [&>tablew-[640px]
+                2xl:[&>tablew-[768px]
+
+                [&>thead]:mx-auto
+                [&>theadw-[640px]
+                2xl:[&>theadw-[768px]
+
+                [&>tr]:mx-auto
+                [&>tr]:max-w-[640px]
+                2xl:[&>tr]:max-w-[768px]
+
+                [&>th]:mx-auto
+                [&>th]:max-w-[640px]
+                2xl:[&>th]:max-w-[768px]
+
+                [&>td]:mx-auto
+                [&>td]:max-w-[640px]
+                2xl:[&>td]:max-w-[768px]
+
+                [&>img]:mx-auto
+                [&>img]:max-w-[640px]
+                [&>img]:rounded-md
+                [&>img]:mt-6
+                [&>img]:mb-0
+                [&>p>img]:rounded-md
+                [&>p>img]:mt-7
+                [&>p>img]:mb-0
+                2xl:[&>img]:max-w-[768px]
+
+                [&>video]:mx-auto
+                [&>p>video]:mt-0
+                [&>video]:mt-7
+                [&>video]:mb-0
+                [&>video]:max-w-[640px]
+                2xl:[&>video]:max-w-[768px]
+
+                [&>hr]:mx-auto
+                [&>hr]:max-w-[640px]
+                2xl:[&>hr]:max-w-[768px]
+
+                prose-p:text-gray-600
+                
+                prose-ul:m-0"
+                >
+                    <Content/>
+                </div>
+            </article>
+        )}
+    </WorkPost>
+</Post>

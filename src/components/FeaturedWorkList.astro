@@ -1,0 +1,25 @@
+---
+import type {CollectionEntry} from "astro:content"
+
+import FeaturedWork from "./FeaturedWork.astro"
+
+type Props = {
+    works: CollectionEntry<"works">[]
+}
+
+const {works} = Astro.props
+
+const featuredWorks = works
+    .filter(work => work.data.featured)
+    .sort((a, b) => a.data.date - b.data.date);
+
+---
+
+<div class="featured-wrapper
+mx-auto
+pt-[2vh]
+lg:w-[640px]
+2xl:w-[768px]
+zoom-in">
+    {featuredWorks.map(work => <FeaturedWork work={work} />)}
+</div>

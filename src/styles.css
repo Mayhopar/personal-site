@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    .article-content p {
+        @apply !mt-6;
+    }
+
+    .article-content p + h3 {
+        @apply !mt-5;
+    }
+
+    h2,
+    h3,
+    h4,
+    p,
+    ul,
+    ol,
+    .archive-columns {
+        @apply text-gray-700;
+    }
+
+    details {
+        @apply overflow-hidden;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+      }
+    
+    details wrapper {
+        @apply w-full overflow-hidden;
+    }
+
+    details summary {
+        @apply w-full bg-white/95 block;
+    }
+
+    details summary span {
+        @apply relative
+        flex 
+        mx-auto 
+        max-w-[640px] 
+        2xl:max-w-[768px] 
+        text-gray-400
+        transition-all
+        hover:text-gray-500
+        
+        before:content-['+'] 
+        before:pl-[9px]
+        before:pr-[12px]
+        2xl:before:pl-[9px] 
+        2xl:before:pr-[17px];
+    }
+
+    details[open] summary span {
+        @apply before:content-['−'] 
+        before:pl-[9px]
+        before:pr-[12px]
+        2xl:before:pl-[9px] 
+        2xl:before:pr-[17px];
+    }
+
+    details summary:hover {
+        @apply text-gray-500/85 cursor-pointer;
+    }
+
+    details summary + p,
+    details summary + ul,
+    details summary + ol,
+    details summary + ul>li,
+    details div + ul {
+        margin-top: 1.25em !important;
+    }
+
+    details[open] h2,
+    details[open] h3,
+    details[open] h4,
+    details[open] p,
+    details[open] ul,
+    details[open] ol,
+    details[open] .archive-columns {
+        @apply mx-auto max-w-[640px] 2xl:max-w-[768px];
+    }
+
+    details[open] .archive-columns {
+        @apply grid grid-cols-2;
+    }
+
+    summary::marker {
+        content:'';
+
+      }
+
+    details[open] summary::marker {
+        content:'';
+    }
+
+    .borders {
+        @apply [&_img]:outline [&_img]:outline-offset-0 [&_img]:outline-1 [&_img]:outline-gray-200 [&_img]:rounded-xl [&_video]:outline [&_video]:outline-offset-0 [&_video]:outline-1 [&_video]:outline-gray-200 [&_video]:rounded-xl;
+    }
+
+    video {
+        z-index: 9999 !important; 
+    }
+
+}

@@ -1,0 +1,81 @@
+---
+import {type CollectionEntry, getEntryBySlug} from "astro:content"
+import { Image } from "astro:assets"
+
+type Props = {
+    work: CollectionEntry<"works">
+}
+
+const {work} = Astro.props
+---
+<article class="hover:scale-[1.015] transition-all">
+    <a
+        href={`/works/${work.slug}`}
+        aria-label={`Read more about ${work.data.title}`}
+        class="px-2"
+    >
+        <Image
+            src={work.data.image}
+            alt={work.data.title}
+            width={600}
+            height={600}
+            loading="lazy"
+            format="webp"
+            class="rounded-md \
+            mb-4 \
+            aspect-thumbnail \
+            object-cover \
+            w-full"
+            transition:name={"cover:" + work.data.title}>
+        </Image>
+    <h1
+        class="font-semibold 
+        mt-4 
+        mb-0 
+        w-fit
+        text-gray-900"
+        transition:name={"title:" + work.data.title}
+    >
+        {work.data.title}
+    </h1>
+    <p class="description
+            text-gray-700 
+            w-fit
+            mt-[4px]
+            mb-0
+            2xl:mt-1
+            2xl:mb-0"
+            transition:name={"desc:" + work.data.title}>
+                {work.data.description}
+            </p>
+            <p class="role
+            w-fit
+            mt-[2px]
+            mb-0
+            text-sm 
+            leading-5
+            text-transparent"
+            transition:name={"role:" + work.data.title}>
+                {work.data.role}
+            </p>
+            <p class="content-end 
+            justify-self-end 
+            self-end
+            m-0 
+            pr-3
+            pb-1
+            text-xs
+            leading-5
+            text-transparent
+            
+            lg:absolute
+            lg:top-[255px]
+            lg:right-[377px]"
+            transition:name={"year:" + work.data.title}
+            >
+                {work.data.year}
+            </p>
+    </a>
+
+
+</article>

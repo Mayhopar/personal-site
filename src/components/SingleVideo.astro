@@ -1,0 +1,20 @@
+---
+const { src, customClass, caption } = Astro.props;
+---
+<div class={"singeVideo \
+max-w-5xl \
+mx-auto \
+rounded-xl \
+2xl:max-w-[1340px]" + " " + customClass}>
+    <video width="auto" autoplay muted no-controls loop class="rounded-xl
+    mt-7
+    2xl:mt-10
+    not-prose">
+        <source src={src} type="video/mp4"></source>
+    </video>
+    <figcaption class="mx-auto
+    max-w-[640px] 
+    2xl:max-w-[768px]">
+        {caption}
+    </figcaption>
+</div>

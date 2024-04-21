@@ -1,0 +1,61 @@
+---
+featured: true
+image: ./images/Gulfstream/Gulfstream.png
+title: Gulfstream
+year: '2022-24'
+role: Sales, Designer, Design Director
+description: "Possibly the best smart jet app in the world."
+date: 2024-04-06
+---
+
+import { Image } from 'astro:assets';
+import SingleImage from '../../components/SingleImage.astro';
+import DoubleImage from '../../components/DoubleImage.astro';
+import SingleVideo from '../../components/SingleVideo.astro';
+import ImageVideo from '../../components/ImageVideo.astro';
+import DoubleVideo from '../../components/DoubleVideo.astro';
+
+import Scheme from './images/Gulfstream/scheme.png';
+import Concept from './images/Gulfstream/concept.mp4';
+import MainOld from './images/Gulfstream/main-old.png';
+import MediaOld from './images/Gulfstream/media-old.png';
+import Photo1 from './images/Gulfstream/photo1.png';
+import Photo2 from './images/Gulfstream/photo2.png';
+import Icons from './images/Gulfstream/Icons.png';
+import Prototype from './images/Gulfstream/prototypes.mp4';
+import Demo from './images/Gulfstream/demo.mp4';
+
+#### <span class="text-gray-700">I led the redesign of a private jet app for a valued client, from conceptualization to leading the final sales call that secured the project. </span> As the project progressed, I guided the design development, collaborated closely with the team, and ensured client satisfaction through regular communication.
+
+
+### Introduction
+
+The client tasked us with enhancing the default Gulfstream app. This was the brief. To comprehend the app's deficiencies, I typically screenshot everything and attempt to make sense of it; this case wasn't unique.
+
+<SingleImage alt='App Screen Map' src={Scheme} caption='Screenshots of the app. Three main parts of the app are discernible.' customClass='borders'/>
+
+During this process, I identified three core problems within the app.
+
+<DoubleImage lalt='Screenshot of the old main screen of the Gulfstream app' lsrc={MainOld} ralt='Screenshots of all the steps to activate media' rsrc={MediaOld} caption='No indication of active states on the main screen. Numerous steps required to operate the media.'/>
+
+On the main screen, users could only see links to different settings without quick access or indications of what exactly is activated or deactivated. The media, a significant part of the flight experience, had its own dedicated tab with labyrinthine navigation. Once activated, users needed to revisit this tab every time they wanted to make changes, resulting in excessive taps.
+
+<video class='rounded-lg' src={Concept} autoplay loop muted/>
+<figcaption>Initial concept of an updated app.</figcaption>
+
+To address these issues, I created a prototype. Although there were still multiple steps involved in accessing media, users could now see active states and had quick access to the player, like on streaming services.
+
+### User Interface
+
+<DoubleImage lalt='A photo of a girl inside a plane with notes on top of the image' lsrc={Photo1} ralt='A photo of a man inside a plane with notes on top of the image' rsrc={Photo2} caption='Field trip notes.'/>
+
+Upon approval of the concept, I collaborated with a designer under my supervision. As we progressed to the jet interior, it became apparent that matching the color scheme to the interior would be beneficial, leading us to choose a beige palette. Real-life experience suggested that users seldom needed to switch seats, as each seat had its own iPod touch for operation. Consequently, we swiftly restructured the main screen and focused on refining details such as icons and animations.
+
+<ImageVideo lalt='Icons of the updated Gulfstream app' lsrc={Icons} rsrc={Prototype} caption='Main icons and numerous unpolished prototypes we created for developers.'/>
+
+A high level of detail was crucial for our collaboration with the developers, who constituted a separate team from a separate company. We quickly identified the shortcomings of the framework they were using, which was Flatter. Consequently, we decided to rebuild every screen and animation from scratch to emulate the native iOS appearance using Flatter.
+
+<video class='rounded-lg' src={Demo} autoplay loop muted/>
+<figcaption>App's demo mode.'</figcaption>
+
+The first phase of the project was successfully delivered, and the client is now using it on flights and is highly satisfied. This success has also introduced us to the Gulfstream team, so I presume there's more to come.

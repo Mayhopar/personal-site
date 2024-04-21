@@ -1,0 +1,171 @@
+---
+import {type CollectionEntry, getEntryBySlug} from "astro:content"
+import { Image } from "astro:assets"
+
+type Props = {
+    work: CollectionEntry<"works">
+}
+
+const {work} = Astro.props;
+
+---
+<article class="hover:scale-[1.015] transition-all">
+    <a
+        href={`/works/${work.slug}`}
+        class="px-2 group"
+    >
+        <div class="folder relative transition-all">
+            <div class="folder-tab
+            absolute
+            -top-[13px]
+            left-0
+            drop-shadow-[0_2px_0px_#94DCFF]
+            z-10">
+                <svg width="61" height="13" viewBox="0 0 61 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 11C0 4.92487 4.92487 0 11 0H43.0608C45.5445 0 47.8874 1.15363 49.4018 3.12231L54.5982 9.87769C56.1126 11.8464 58.4555 13 60.9392 13H0V11Z" fill="#94DCFF"/>
+                </svg>
+            </div>
+            <div class="folder-back
+            relative
+            aspect-[3/2]
+            w-full
+            h-full
+            bg-[#94DCFF]
+            rounded-tl-[0px]
+            rounded-tr-[8px]
+            rounded-br-[8px]
+            rounded-bl-[8px]
+            z-10">
+                
+                <Image src={work.data.preview1} width='140' height='140' quality='max' alt=''
+                class="absolute \
+                left-0 \
+                right-0 \
+                bottom-0 \
+                mx-auto \
+                object-cover \
+                scale-75 \
+                rounded \
+                shadow-md \
+                group-hover:scale-100 \
+                group-hover:translate-y-[-215%] \
+                group-hover:translate-x-[-1%] \
+                group-hover:-rotate-1 \
+                transition-all \
+                z-20 \
+                ease-in-out \
+                duration-150 \
+                "/>
+
+                <Image src={work.data.preview2} width='140' height='140' quality='max' alt=''
+                class="absolute \
+                left-0 \
+                right-0 \
+                bottom-0 \
+                mx-auto \
+                object-cover \
+                scale-75 \
+                rounded \
+                shadow-md \
+                group-hover:scale-100 \
+                group-hover:translate-y-[-170%] \
+                group-hover:translate-x-[15%] \
+                group-hover:rotate-[4deg] \
+                transition-all \
+                z-30 \
+                ease-in-out \
+                duration-150 \
+                "/>
+
+                <Image src={work.data.preview3} width='140' height='140' quality='max' alt=''
+                class="absolute \
+                left-0 \
+                right-0 \
+                bottom-0 \
+                mx-auto \
+                object-cover \
+                scale-75 \
+                rounded \
+                shadow-md \
+                group-hover:scale-100 \
+                group-hover:translate-y-[-125%] \
+                group-hover:translate-x-[-15%] \
+                group-hover:-rotate-3 \
+                transition-all \
+                z-40 \
+                ease-in-out \
+                duration-150 \
+                "/>
+
+                <div class="folder-front
+                absolute
+                w-full
+                h-[90%]
+                bottom-0
+                bg-[#66CAF8]
+                rounded-tl-[8px]
+                rounded-tr-[8px]
+                rounded-br-[4px]
+                rounded-bl-[4px]
+                origin-bottom
+                transition
+                ease-in-out
+                duration-30
+                z-50
+                group-hover:translate-y-px
+                group-hover:skew-x-3
+                group-hover:scale-y-95"></div>
+                <div class="folder-front-right
+                absolute
+                w-full
+                h-[90%]
+                bottom-0
+                bg-[#66CAF8]
+                rounded-tl-[8px]
+                rounded-tr-[8px]
+                rounded-br-[4px]
+                rounded-bl-[4px]
+                origin-bottom
+                transition
+                ease-in-out
+                duration-30
+
+                group-hover:translate-y-px
+                group-hover:-skew-x-3
+                group-hover:scale-y-95"></div>
+            </div>
+        </div>
+        <h1
+            class="font-semibold 
+            mt-4 
+            mb-0 
+            w-fit
+            text-gray-900"
+            transition:name={"title:" + work.data.title}
+        >
+            {work.data.title}
+        </h1>
+        <p class="description
+        text-gray-700 
+        w-fit
+        mt-[4px]
+        mb-0
+        2xl:mt-1
+        2xl:mb-0"
+        transition:name={"desc:" + work.data.title}>
+            {work.data.description}
+        </p>
+        <p class="date
+        text-gray-400
+        m-0 
+        text-xs
+        leading-5
+        text-nowrap"
+        transition:name={"year:" + work.data.title}
+        >
+            {work.data.year}
+        </p>
+    </a>
+
+
+</article>

@@ -1,0 +1,29 @@
+---
+import type {CollectionEntry} from "astro:content"
+
+import Work from "./WorkCard.astro"
+
+type Props = {
+    works: CollectionEntry<"works">[]
+}
+
+const {works} = Astro.props
+const unfeaturedWorks = works
+    .filter(work => !work.data.featured)
+    .sort((a, b) => b.data.date - a.data.date);
+---
+
+<div class="m-auto 
+max-w-[484px]
+lg:w-[640px] 
+grid 
+grid-cols-2 
+grid-flow-row 
+gap-20
+items-start
+mt-64
+
+2xl:w-[768px]
+pb-[16vh]">
+    {unfeaturedWorks.map(work => <Work work={work}/>)}
+</div>

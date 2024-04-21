@@ -1,0 +1,179 @@
+---
+featured: false
+image: ./images/Glowgreen/Cover.jpg
+title: More
+year: '2020–2024'
+role: Sales, Designer, Lead
+lead: Dashboard MVP for energy offsetting company
+date: 2024-04-10
+
+preview1: '/src/content/works/images/misc/preview01.png'
+preview2: '/src/content/works/images/misc/preview02.png'
+preview3: '/src/content/works/images/misc/preview03.png'
+---
+
+import { Image } from 'astro:assets';
+import SingleImage from '../../components/SingleImage.astro';
+import DoubleImage from '../../components/DoubleImage.astro';
+import SingleVideo from '../../components/SingleVideo.astro';
+import ImageVideo from '../../components/ImageVideo.astro';
+import DoubleVideo from '../../components/DoubleVideo.astro';
+
+import Sketch from './images/Glowgreen/sketch.mp4';
+import Wireframe from './images/Glowgreen/wireframes.mp4';
+import Desktop from './images/Glowgreen/Desktop.png';
+import Tablet from './images/Glowgreen/Tablet.png';
+import Phone from './images/Glowgreen/Phone.png';
+
+import careTimeline from './images/Other/petcube/careHistory.png';
+import careOnboarding from './images/Other/petcube/careOnboarding.png';
+import careUpsell from './images/Other/petcube/careUpsell.png';
+import efUpsell from './images/Other/petcube/efUpsell.mp4';
+import responsive from './images/Other/petcube/responsive.mp4';
+
+
+import PlancaLanding from './images/Other/planca/plancaSite.mp4';
+import PlancaRetouch from './images/Other/planca/plancaRetouch.png';
+import PlancaSession from './images/Other/planca/Sergey.mp4';
+import Portrait from './images/Other/planca/PortraitMain.jpg';
+
+import PortraitLayout from './images/Other/portrait/layout.mp4';
+import PortraitMobile from './images/Other/portrait/mobile.jpg';
+import PortraitIcons from './images/Other/portrait/icons.jpg';
+import PortraitDark from './images/Other/portrait/darkTheme.jpg';
+import PortraitMobileMore from './images/Other/portrait/mobileMore.png';
+import PortraitSchemeL from './images/Other/portrait/schemeLeft.gif';
+import PortraitSchemeR from './images/Other/portrait/schemeRight.gif';
+import PortraitMain from './images/Other/portrait/main.jpg';
+import PortraitUI from './images/Other/portrait/ui.jpg';
+
+import WacometDashboard from './images/Other/wacomet/dashboard.mp4';
+import WacometOrders from './images/Other/wacomet/orders.png';
+import WacometOffset from './images/Other/wacomet/offset.mp4';
+
+import GGUnlogged from './images/Other/glowgreen/unlogged.png';
+import GGDesktop from './images/Other/glowgreen/dashboard.png';
+import GGResponsive from './images/Other/glowgreen/responsive.png';
+
+import LemonLanding from './images/Other/lemon/LemonLanding.mp4'
+
+#### <span class="text-gray-700">Below are some projects I have delivered, including hardware product launches and quick MVP landing pages.</span>
+
+### More Petcube
+
+My main contribution was to direct the design effort overall facilitating people relationships while advocating for design. Under my leadership, besides Petcube Tracker, the product design team delivered numerous improvements and experiments, as well as released another new product.
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+  **Petcube Care** is a subscription service that enhances Petcube camera functionalities with features like extended video history, smart alerts, and automatic video recording for comprehensive pet and home monitoring:
+  
+  <br/>
+  ### New Video Timeline
+  <SingleImage alt='' src={careTimeline}/>
+  * Churn 0.37% ↓
+  * Playback 22% ↑
+  
+  <br/>
+  ### Onboarding
+  <SingleImage alt='' src={careOnboarding}/>
+  * CR 17% ↑
+  
+  <br/>
+  ### Upsells and experiments
+  <SingleImage alt='' src={careUpsell}/>
+  * Trial CR 30% ↑
+  * MRR 9% ↑
+
+  <br/>
+  **The Petcube Emergency Fund** is a subscription-based service that provides up to $3,000 coverage per year for various pet emergencies, including veterinary treatments, for up to six pets, without discriminating based on age, breed, or medical history
+  <SingleVideo src={efUpsell}/>
+  * Overall MRR 63% ↑ after numerous experiments in a 1-year span
+
+  <br/>
+  **The Petcube Cam 360** is an innovative pet monitoring camera offering 360° panoramic views with pan-tilt rotation, live HD 1080p video, and smart alerts for comprehensive pet and home surveillance. 
+  </div>
+  <SingleVideo src={responsive}/>
+</details>
+
+---
+
+### Planca Coach
+
+Personal business exercise, a remote coaching online service.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    Having a passion for sports I started a profitable day 1 remote coaching experiment, hiring Olympic Ukrainian coaches and having clients both in Europe and the US.
+
+    <SingleVideo src={PlancaLanding} caption="Simple website build with just HTML and CSS " customClass="[&>video]:aspect-video [&>video]:object-cover"/>
+
+    I photographed myself and my friend as models for the website, hired a waiter from my hometown as a support agent, and built a backend in Notion. Doing design, code, photography, and hiring the whole project cost me around $300 to start, while a monthly subscription was $500 and the average user lifespan turned out 8 months. 
+
+    <ImageVideo lsrc={PlancaRetouch} lalt="Before and after of retouched photo" rsrc={PlancaSession} caption=" 1. The most money I spent on the project was two hours of studio and the light rent. My retouching skills came in handy; 2. The main format was 1 to 1 training, but we also experimented with group training, hoping that this would attract more people."/> 
+
+    About 1 year into the project I realized that the market didn’t seem to exist and I got married, so I decided that I could build more projects in the future, but I would never have the first year of being married again and closed the project. The coaches continued to work with clients on their terms and everyone was fit and happy.
+  </div>
+</details>
+
+---
+
+### Portrait
+
+I led the design of a beauty clinic clients-facing portal while extending Pentagram’s branding into the interface realm.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <SingleImage alt='Main screen of the Portrait user portal' src={PortraitMain} customClass="!mb-0"/>
+    <DoubleImage lalt='Scheme of the service' lsrc={PortraitSchemeL} ralt='Wireframes' rsrc={PortraitSchemeR} customClass="!mt-5 !mb-0"/>
+    <SingleVideo src={PortraitLayout} customClass="!mt-5 !mb-0 [&>video]:!mt-0"/>
+    <DoubleImage lalt='Few icons from the iconset' lsrc={PortraitIcons} ralt='UI elements' rsrc={PortraitUI} customClass="!mt-5 !mb-0"/>
+    <DoubleImage lalt='Mobile screen' lsrc={PortraitMobile} ralt='Dark theme preview' rsrc={PortraitDark} customClass="!mt-5 !mb-0"/>
+    <SingleImage alt='Few mobile screens' src={PortraitMobileMore} customClass="!mt-5"/>
+  </div>
+</details>
+
+---
+
+### Wacomet
+
+I conceptualized and then led the design of the water offsetting company web app.
+
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <SingleVideo src={WacometDashboard} customClass="!mt-5 !mb-0 [&>video]:!mt-0"/>
+    <SingleImage alt='Wacomet orders dashboard' src={WacometOrders} customClass="!mt-5 !mb-0"/>
+    <SingleVideo src={WacometOffset} customClass="!mt-5 !mb-0 [&>video]:!mt-0"/>
+  </div>
+</details>
+
+---
+
+### GlowGreen
+
+Delivered an MVP for energy offsetting startup web app.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <SingleImage alt='Glowgreen desktop unlogged' src={GGUnlogged} customClass="!mt-5 !mb-0"/>
+    <SingleImage alt='Glowgreen desktop dashboard' src={GGDesktop} customClass="!mt-5 !mb-0"/>
+    <SingleImage alt='Glowgreen responsive' src={GGResponsive} customClass="!mt-5 !mb-0"/>
+  </div>
+</details>
+
+---
+
+### Lemon.io
+
+Designed and supervised the developing efforts for the launch of a hiring platform that helped to find senior devs.
+
+<details class="">
+  <summary class=""><span>Details</span></summary> 
+  <div class="content">
+    <SingleVideo src={LemonLanding}/>
+  </div>
+</details>

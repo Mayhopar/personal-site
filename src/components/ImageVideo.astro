@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+const { lsrc, lalt, rsrc, reverse, caption, customClass } = Astro.props;
+---
+
+<div class={'columns-1 \
+md:columns-2 \
+gap-4 max-w-5xl \
+mx-auto \
+doubleImage \
+mt-7 \
+2xl:max-w-[1340px] \
+2xl:mt-10' + ' ' + customClass}>
+    {reverse ? (
+        <>
+            <video width="auto" autoplay muted loop class="!col-start-2 !col-end-3 rounded-[1vw] mt-4 md:mt-0 not-prose">
+                <source src={rsrc} type="video/mp4"></source>
+            </video>
+
+            <Image
+                src={lsrc}
+                alt={lalt}
+                loading="lazy"
+                format="webp"
+                class="col-start-1 col-end-2 rounded-[1vw] not-prose"
+            />
+        </>
+        ) : (
+        <>
+            <Image
+                src={lsrc}
+                alt={lalt}
+                format="webp"
+                class="col-start-1 col-end-2 rounded-[1vw] not-prose"
+            />
+
+            <video width="auto" autoplay muted loop class="!col-start-2 !col-end-3 rounded-[1vw] mt-4 md:mt-0 not-prose">
+                <source src={rsrc} type="video/mp4"></source>
+            </video>
+        </>
+    )}
+</div>
+<figcaption class="mx-auto
+    max-w-[640px] 
+    2xl:max-w-[768px]">
+    {caption}
+</figcaption>
