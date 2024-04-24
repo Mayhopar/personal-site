@@ -110,7 +110,10 @@
     div video {
         @apply w-full rounded-md lg:rounded-2xl;
     }
-    
+
+    video::-webkit-media-controls {
+        display: inherit;
+    }
 }
 
 /* <div class={"max-w-5xl \
