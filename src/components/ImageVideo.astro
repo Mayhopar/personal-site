@@ -6,7 +6,7 @@ const { lsrc, lalt, rsrc, reverse, caption, customClass } = Astro.props;
 <div class={'columns-1 md:columns-2 gap-4 max-w-5xl mx-auto doubleImage mt-7 2xl:max-w-[1340px] 2xl:mt-10 ' + customClass}>
     {reverse ? (
         <>
-            <video width="auto" playsinline autoplay muted loop class="!col-start-2 !col-end-3 rounded-md lg:rounded-xl mt-4 md:mt-0 not-prose">
+            <video width="auto" playsinline autoplay muted loop preload="auto" class="!col-start-2 !col-end-3 rounded-md lg:rounded-xl mt-4 md:mt-0 not-prose">
                 <source src={rsrc} type="video/mp4" />
             </video>
 
@@ -27,7 +27,7 @@ const { lsrc, lalt, rsrc, reverse, caption, customClass } = Astro.props;
                 class="col-start-1 col-end-2 rounded-md lg:rounded-xl not-prose"
             />
 
-            <video width="auto" playsinline autoplay muted loop class="!col-start-2 !col-end-3 rounded-md lg:rounded-xl mt-4 md:mt-0 not-prose">
+            <video width="auto" playsinline autoplay muted loop preload="auto" class="!col-start-2 !col-end-3 rounded-md lg:rounded-xl mt-4 md:mt-0 not-prose">
                 <source src={rsrc} type="video/mp4" />
             </video>
         </>
