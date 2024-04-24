@@ -36,7 +36,7 @@ import Chartset from './images/NetBeez/Chartset.jpg';
 
 The service lets engineers investigate network issues by helping them create, run tests, and analyze results. This involves looking at system parts like Agents, Targets, and WiFi, considering how they interact with other network components.
 
-<img class='' src='/src/content/works/images/NetBeez/Scheme.jpg' alt='Hands holding a book'/>
+<Image class='' src={Scheme} alt='Hands holding a book'/>
 <figcaption>Tests show the health of system component relationships.</figcaption>
 
 After establishing a strong presence in the market and experiencing growth over the past decade, NetBeez approached O0 to create a new brand and landing page. Once it was done, they sought our help in exploring options for redesigning their product. That's where my team stepped in, proposing ideas and forging a partnership.
@@ -44,14 +44,14 @@ After establishing a strong presence in the market and experiencing growth over 
 ### Audit
 
 <video class="rounded-lg aspect-video object-cover object-top" muted autoplay no-controls loop>
-  <source src='/src/content/works/images/NetBeez/ScreenMap.mp4' type="video/mp4"/>
+  <source src={ScreenMap} type="video/mp4"/>
 </video>
 <figcaption>Screen map in FigJam</figcaption>
 
 We took screenshots of all the screens and assembled a map of them. Then we identified the main problems of the service, which were inconsistency in the behavior of similar elements across the service, and inconsistent navigation patterns. Additionally, while investigating, users could go so deep into the interface that previous context is no longer present on the screen.
 
 <video class="rounded-lg aspect-video object-cover object-top" muted autoplay no-controls loop>
-  <source src='/src/content/works/images/NetBeez/Estimation.mp4' type="video/mp4"/>
+  <source src={Estimation} type="video/mp4"/>
 </video>
 <figcaption>Every screen we needed to redesign was estimated in hours.</figcaption>
 
@@ -61,13 +61,13 @@ This exercise also gave us a better sense of the number of individual elements t
 
 So we knew that engineers needed to dive deep inside entities, go back easily, and be able to compare data quickly.
 
-<img class='aspect-video object-cover object-top' src='/src/content/works/images/NetBeez/HandsBook.jpg' alt='Hands holding a book'/>
+<Image class='aspect-video object-cover object-top' src={HandsBook} alt='Hands holding a book'/>
 <figcaption>Photo: Unsplash</figcaption>
 
 This brought to my mind the analogy of when you're holding a book with footnotes on another page and you put your fingers between pages to be able to go back and forth and compare information quickly.
 
 <video class="rounded-md aspect-video object-cover object-top" muted autoplay no-controls loop>
-  <source src='/src/content/works/images/NetBeez/Layout.mp4' type="video/mp4"/>
+  <source src={Layout} type="video/mp4"/>
 </video>
 <figcaption>Semi-modal mode for incident inspection</figcaption>
 
@@ -77,12 +77,12 @@ So I came up with this concept where during the investigation, users open a semi
 
 We extended our brandguide pallette with colorblind friendly colors which was crucial for the product with this amount of charts and visual data.
 
-<img class='object-cover object-top' src='/src/content/works/images/NetBeez/Palette.jpg' alt='Extended NetBeez Palette'/>
+<Image class='object-cover object-top' src={Palette} alt='Extended NetBeez Palette'/>
 <figcaption>Brand color on the left and center, new colors are on the right.</figcaption>
 
 With that we redesigned all the charts to be stylistically coherent. Each chart had surrounding components so we also were building a lot of components on the fly and figuring out elements relationships possibilities in a form of prototypes. It was as I call it a confusion state, where you try things out constantly and initially find universal rules for the universe of the product.
 
-<img class='object-cover object-top' src='/src/content/works/images/NetBeez/Frame1.jpg' alt='Example of charts with accessible colors'/>
+<Image class='object-cover object-top' src={Frame1} alt='Example of charts with accessible colors'/>
 <figcaption>Some examples with charts using accessible colors.</figcaption>
 
 Out of this exercice we went out having a good amount of components in all states, all the charts and table elements which is a good amount of building blocks in a product like that.
@@ -108,7 +108,3 @@ Targets inherited a similar design. On top, there's a table with all websites us
 <SingleVideo src={Wifi} caption="Wi-Fi inspection flow."/>
 
 At this point, Wi-Fi follows the same design patterns.
-
-### Aknowledgements
-
-The devil is in details, and in the case of NetBeez, it's also in a number of widgets and their states. Here are just some of them, since it's still a design case study.
