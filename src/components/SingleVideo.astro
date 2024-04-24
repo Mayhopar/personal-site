@@ -2,13 +2,12 @@
 const { src, customClass, caption } = Astro.props;
 ---
 <div class={"singeVideo \
+mt-7 \
+2xl:mt-10 \
 max-w-5xl \
 mx-auto \
-rounded-xl \
 2xl:max-w-[1340px]" + " " + customClass}>
-    <video width="auto" autoplay muted no-controls loop class="rounded-xl
-    mt-7
-    2xl:mt-10
+    <video width="auto" autoplay muted no-controls loop class="w-full rounded-md lg:rounded-xl
     not-prose">
         <source src={src} type="video/mp4"></source>
     </video>
