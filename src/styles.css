@@ -111,8 +111,10 @@
         @apply w-full rounded-md lg:rounded-2xl;
     }
 
-    video::-webkit-media- {
-        display: inherit;
+    @media (min-width: 1024px) {
+        video::-webkit-media-no-controls {
+            display: none !important;
+          }
     }
 }
 

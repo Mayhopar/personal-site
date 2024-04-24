@@ -1,0 +1,42 @@
+---
+import videojs from 'video.js';
+import 'video.js/dist/video-js.css';
+import { Player } from 'video.js/player';
+
+export interface Props {
+  src: string;
+}
+
+const { src } = Astro.props;
+
+let player: Player;
+
+const initPlayer = () => {
+  if (player) {
+    player.dispose();
+  }
+  player = videojs('video-player', {
+    no-controls: true,
+    sources: [
+      {
+        src,
+        type: 'video/mp4',
+      },
+    ],
+  });
+};
+
+const handleCanPlayThrough = initPlayer.toString();
+---
+
+<div class={"singeVideo \
+mt-7 \
+2xl:mt-10 \
+max-w-5xl \
+mx-auto \
+2xl:max-w-[1340px]"}>
+    <video id="video-player" class="video-js vjs-default-skin w-full rounded-md lg:rounded-xl
+    not-prose" oncanplaythrough={handleCanPlayThrough}>
+      <source src={src} type="video/mp4"></source>
+    </video>
+</div>
