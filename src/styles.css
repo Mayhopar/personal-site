@@ -99,7 +99,7 @@
     }
 
     .borders {
-        @apply [&_img]:outline [&_img]:outline-offset-0 [&_img]:outline-1 [&_img]:outline-gray-200 [&_img]:rounded-md lg:rounded-2xl [&_video]:outline [&_video]:outline-offset-0 [&_video]:outline-1 [&_video]:outline-gray-200 [&_video]:rounded-md lg:rounded-2xl;
+        @apply [&_img]:outline [&_img]:outline-offset-0 [&_img]:outline-1 [&_img]:outline-gray-200 [&_img]:rounded-md [&_img]:lg:rounded-xl [&_video]:outline [&_video]:outline-offset-0 [&_video]:outline-1 [&_video]:outline-gray-200 [&_video]:rounded-md [&_video]:lg:rounded-xl;
     }
 
     video {
@@ -124,7 +124,7 @@
                 src={src}
                 loading="lazy"
                 format="webp"
-                class="rounded-md lg:rounded-2xl"/>
+                class="rounded-md lg:rounded-xl"/>
         </div>
         <figcaption class="mx-auto
         max-w-[640px] 
