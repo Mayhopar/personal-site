@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import OpenForWork from '../components/OpenForWork.astro';
 import { ViewTransitions } from 'astro:transitions';
 import '../fonts.css';
 
@@ -26,6 +27,7 @@ const { title, description, image } = Astro.props;
 	</head>
 	<body class="font-['SuisseIntl']">
 		<Header />
+		<OpenForWork />
 		<slot />
 	</body>
 </html>
