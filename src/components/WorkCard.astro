@@ -9,7 +9,7 @@ type Props = {
 const {work} = Astro.props;
 
 ---
-<article class="hover:scale-[1.015] transition-all">
+<article class="lg:hover:scale-[1.015] transition-all">
     <a
         href={`/works/${work.slug}`}
         class="px-2 group"
@@ -51,10 +51,10 @@ const {work} = Astro.props;
                 scale-75 \
                 rounded \
                 shadow-md \
-                group-hover:scale-100 \
-                group-hover:translate-y-[-160%] \
-                group-hover:translate-x-[-1%] \
-                group-hover:-rotate-1 \
+                lg:group-hover:scale-100 \
+                lg:group-hover:translate-y-[-160%] \
+                lg:group-hover:translate-x-[-1%] \
+                lg:group-hover:-rotate-1 \
                 transition-all \
                 z-20 \
                 ease-in-out \
@@ -75,10 +75,10 @@ const {work} = Astro.props;
                 scale-75 \
                 rounded \
                 shadow-md \
-                group-hover:scale-100 \
-                group-hover:translate-y-[-120%] \
-                group-hover:translate-x-[15%] \
-                group-hover:rotate-[4deg] \
+                lg:group-hover:scale-100 \
+                lg:group-hover:translate-y-[-120%] \
+                lg:group-hover:translate-x-[15%] \
+                lg:group-hover:rotate-[4deg] \
                 transition-all \
                 z-30 \
                 ease-in-out \
@@ -99,10 +99,10 @@ const {work} = Astro.props;
                 scale-75 \
                 rounded \
                 shadow-md \
-                group-hover:scale-100 \
-                group-hover:translate-y-[-80%] \
-                group-hover:translate-x-[-15%] \
-                group-hover:-rotate-3 \
+                lg:group-hover:scale-100 \
+                lg:group-hover:translate-y-[-80%] \
+                lg:group-hover:translate-x-[-15%] \
+                lg:group-hover:-rotate-3 \
                 transition-all \
                 z-40 \
                 ease-in-out \
@@ -124,9 +124,9 @@ const {work} = Astro.props;
                 ease-in-out
                 duration-30
                 z-50
-                group-hover:translate-y-px
-                group-hover:skew-x-3
-                group-hover:scale-y-95"></div>
+                lg:group-hover:translate-y-px
+                lg:group-hover:skew-x-3
+                lg:group-hover:scale-y-95"></div>
                 <div class="folder-front-right
                 absolute
                 w-full
@@ -142,9 +142,9 @@ const {work} = Astro.props;
                 ease-in-out
                 duration-30
 
-                group-hover:translate-y-px
-                group-hover:-skew-x-3
-                group-hover:scale-y-95"></div>
+                lg:group-hover:translate-y-px
+                lg:group-hover:-skew-x-3
+                lg:group-hover:scale-y-95"></div>
             </div>
         </div>
         <h1
