@@ -6,10 +6,10 @@ import '../fonts.css';
 interface Props {
 	title: string;
 	description?: string;
-	image?: string
+	image?: string;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description = "Designs for user delight and company profit", image = "https://mayhopar.com/cover.jpg" } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,12 +17,12 @@ const { title, description, image } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<title>{title}</title>
-		<meta name="description" content="Designs for user delight and company profit" />
+		<meta name="description" content={description} />
 		<meta name="keywords" content="design, ui, ux, b2b, b2c, saas">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
 		<meta name="generator" content={Astro.generator} />
-		<meta property="og:image" content="https://mayhopar.com/cover.jpg" />
+		<meta property="og:image" content={image} />
 		<meta property="og:image:type" content="image/jpeg" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />

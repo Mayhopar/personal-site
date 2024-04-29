@@ -4,11 +4,14 @@ import { ViewTransitions } from 'astro:transitions';
 import '../fonts.css';
 import '../styles.css';
 import { Image } from "astro:assets"
+
 interface Props {
 	title: string;
 	description?: string;
 	image?: string
 }
+
+const { title, description = "Designs for user delight and company profit", image = "https://mayhopar.com/cover.jpg" } = Astro.props;
 ---
 
 <!doctype html>
