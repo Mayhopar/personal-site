@@ -27,7 +27,7 @@ const {work} = Astro.props;
 const {Content} = await work.render();
 ---
 
-<Post title={work.data.title}>
+<Post title={work.data.title} description={work.data.description}>
     <WorkPost>
         {work.data.featured ? (
             <article class="w-full
