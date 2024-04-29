@@ -7,7 +7,7 @@ const worksCollection = defineCollection({
         title: z.string(),
         year: z.string(),
         role: z.string(),
-        description: z.string().optional(),
+        description: z.string(),
         date: z.date(),
         preview1: z.string(),
         preview2: z.string(),
