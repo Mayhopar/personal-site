@@ -1,9 +1,6 @@
 ---
 import {type CollectionEntry, getEntryBySlug} from "astro:content"
 import { Image } from "astro:assets"
-import { getImage } from 'astro:assets';
-import { lazy } from "astro/zod"
-import { slide } from "astro:transitions";
 
 type Props = {
     work: CollectionEntry<"works">
@@ -30,7 +27,7 @@ duration-150
         <Image
             src={work.data.image}
             alt={work.data.title}
-            width={1600}
+            width={1340}
             format="webp"
             class="w-full aspect-thumbnail object-cover mb-0 rounded-md lg:rounded-xl"
             transition:name={"cover:" + work.data.title}>

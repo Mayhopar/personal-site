@@ -117,23 +117,3 @@
           }
     }
 }
-
-/* <div class={"max-w-5xl \
-    mx-auto \
-    mt-7 \
-    2xl:max-w-[1340px] \
-    2xl:mt-10 " + ' ' + customClass}>
-        <div class="not-prose">
-            <Image
-                alt={alt}    
-                src={src}
-                loading="lazy"
-                format="webp"
-                class="rounded-md lg:rounded-xl"/>
-        </div>
-        <figcaption class="mx-auto
-        max-w-[640px] 
-        2xl:max-w-[768px]">
-            {caption}
-        </figcaption>
-    </div> */
