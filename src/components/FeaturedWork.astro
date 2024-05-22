@@ -10,16 +10,7 @@ type Props = {
 }
 
 const {work} = Astro.props
-
-
-/* export async function getStaticPaths() { ... }, etc. */
-
-const optimizedImage = await getImage({ src: work.data.image });
 ---
-<Fragment slot="head">
-    <link rel="preload" href={optimizedImage.src} as="image" />
-</Fragment>
-
 <article class="w-full
 mt-[16vh]
 mb-20
@@ -37,10 +28,9 @@ duration-150
         class=""
     >
         <Image
-            src={optimizedImage.src}
+            src={work.data.image}
             alt={work.data.title}
             width={1600}
-            height={1000}
             format="webp"
             class="w-full aspect-thumbnail object-cover mb-0 rounded-md lg:rounded-xl"
             transition:name={"cover:" + work.data.title}>
