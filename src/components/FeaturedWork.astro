@@ -1,6 +1,7 @@
 ---
 import {type CollectionEntry, getEntryBySlug} from "astro:content"
 import { Image } from "astro:assets"
+import { getImage } from 'astro:assets';
 import { lazy } from "astro/zod"
 import { slide } from "astro:transitions";
 
@@ -10,7 +11,15 @@ type Props = {
 
 const {work} = Astro.props
 
+
+/* export async function getStaticPaths() { ... }, etc. */
+
+const optimizedImage = await getImage({ src: work.data.image });
 ---
+<Fragment slot="head">
+    <link rel="preload" href={optimizedImage.src} as="image" />
+</Fragment>
+
 <article class="w-full
 mt-[16vh]
 mb-20
@@ -28,12 +37,12 @@ duration-150
         class=""
     >
         <Image
-            src={work.data.image}
+            src={optimizedImage.src}
             alt={work.data.title}
             width={1600}
-            loading="lazy"
+            height={1000}
             format="webp"
-            class="w-full  aspect-thumbnail object-cover mb-0 rounded-md lg:rounded-xl"
+            class="w-full aspect-thumbnail object-cover mb-0 rounded-md lg:rounded-xl"
             transition:name={"cover:" + work.data.title}>
         </Image>
         <div class="flex flex-col
