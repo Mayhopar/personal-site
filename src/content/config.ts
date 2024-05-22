@@ -9,6 +9,7 @@ const worksCollection = defineCollection({
         role: z.string(),
         description: z.string().optional(),
         date: z.date(),
+        link: z.string().optional(),
         preview1: z.string(),
         preview2: z.string(),
         preview3: z.string(),

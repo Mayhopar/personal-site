@@ -54,73 +54,105 @@ const {Content} = await work.render();
                     transition:name={"cover:" + work.data.title}
 
                     />
-                    <div class="flex 
-                    flex-col
-                    prose 
-                    max-w-[640px]
+                    <div class="flex
+                    flex-row 
+                    max-w-[640px] 
                     mx-auto 
-                    relative
-                    gap-x-2
-                    
-                    2xl:prose-xl
-                    2xl:max-w-[768px]">
-                        <h1 class="title 
-                        text-gray-900
-                        w-fit
-                        mb-0 
-                        mt-6 
-                        2xl:mb-0
-                        2xl:mt-6
-                        font-semibold"
-                        transition:name={"title:" + work.data.title}
-                        >
-                            {work.data.title}
-                        </h1>
-                        <p class="description
-                        w-fit
-                        mt-[4px]
-                        mb-0
-                        2xl:mt-1
-                        2xl:mb-0"
-                        transition:name={"desc:" + work.data.title}
-                        >
-                            {work.data.description}
-                        </p>
-                        <p class="role
-                        w-fit
-                        mt-[2px]
-                        mb-0
-                        text-gray-400 
-                        text-sm
-                        leading-5
-                        2xl:my-0
-                        2xl:text-lg"
-                        transition:name={"role:" + work.data.title}
-                        >
-                            {work.data.role}
-                        </p>
-                        <p class="year
-                        grow-0
-                        text-gray-400
-                        text-xs
-                        w-fit
-                        my-0
-                        pt-[2.5px]
-                        
-                        lg:absolute
-                        lg:top-[27px]
-                        lg:right-[652px]
-                        lg:text-nowrap
-                        lg:text-right
-                        2xl:text-sm
-                        2xl:m-0
-                        2xl:top-[26px]
-                        2xl:right-[782px]
-                        "
-                        transition:name={"year:" + work.data.title}
-                        >
-                            {work.data.year}
-                        </p>
+                    2xl:max-w-[768px] 
+                    items-center">
+                        <div class="flex 
+                        flex-col
+                        prose
+                        2xl:prose-xl
+                        relative
+                        gap-x-2
+                        w-max
+                        grow">
+                            <h1 class="title 
+                            text-gray-900
+                            w-fit
+                            mb-0 
+                            mt-6 
+                            2xl:mb-0
+                            2xl:mt-6
+                            font-semibold"
+                            transition:name={"title:" + work.data.title}
+                            >
+                                {work.data.title}
+                            </h1>
+                            <p class="description
+                            w-fit
+                            mt-[4px]
+                            mb-0
+                            2xl:mt-1
+                            2xl:mb-0"
+                            transition:name={"desc:" + work.data.title}
+                            >
+                                {work.data.description}
+                            </p>
+                            <p class="role
+                            w-fit
+                            mt-[2px]
+                            mb-0
+                            text-gray-400 
+                            text-sm
+                            leading-5
+                            2xl:my-0
+                            2xl:text-lg"
+                            transition:name={"role:" + work.data.title}
+                            >
+                                {work.data.role}
+                            </p>
+                            <p class="year
+                            text-gray-400
+                            text-xs
+                            w-fit
+                            h-fit
+                            !m-0
+                            leading-5
+                            
+                            text-right
+                            lg:absolute
+                            lg:top-[28px]
+                            lg:right-[563px]
+                            lg:text-nowrap
+                            lg:text-right
+
+                            2xl:text-sm
+                            2xl:m-0
+                            2xl:top-[29px]
+                            2xl:right-[691px]
+                            "
+                            transition:name={"year:" + work.data.title}
+                            >
+                                {work.data.year}
+                            </p>
+                        </div>
+                        {work.data.link ? (
+                            <a href={work.data.link} target="_blank" class="rounded-full
+                            px-4 py-2 
+                            grow-0 
+                            h-min 
+                            !text-base
+                            bg-gray-100  
+                            text-gray-400
+                            hover:text-gray-500
+                            hover:bg-gray-200
+                            transition-all
+                            cursor-alias"
+                            transition:name={"button:" + work.data.title}>Website</a>
+                        ):(
+                        <p class="rounded-full
+                            px-4 py-2 
+                            grow-0 
+                            h-min 
+                            !text-base
+                            bg-transparent
+                            text-transparent
+                            transition-all
+                            cursor-default"
+                            transition:name={"button:" + work.data.title}>Website</p>
+                        ) }
                     </div>
                 </div>
                 <div class="prose
