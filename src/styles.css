@@ -116,14 +116,4 @@
             display: none !important;
           }
     }
-
-    
-
-    ::view-transition-new(*) {
-        animation: 160ms cubic-bezier(0.76, 0, 0.24, 1) both;
-    }
-
-    /* ::view-transition-old(*) {
-        animation: 360ms cubic-bezier(0.76, 0, 0.24, 1) both;
-    } */
 }
