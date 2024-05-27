@@ -117,35 +117,13 @@
           }
     }
 
-    /* @keyframes AstroFadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
+    
+
+    ::view-transition-new(*) {
+        animation: 160ms cubic-bezier(0.76, 0, 0.24, 1) both;
     }
 
-    @keyframes AstroFadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-    } */
-
-    /* ::view-transition-new {
-        animation: AstroFadeIn 20s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-    }
-
-    ::view-transition-old {
-        animation: AstroFadeOut 20s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-    } */
-
-    /* html::view-transition-new(*) {
-        animation-duration: 5s !important;
-        transition-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-        animation-name: astroFadeOut;
+    /* ::view-transition-old(*) {
+        animation: 360ms cubic-bezier(0.76, 0, 0.24, 1) both;
     } */
 }
