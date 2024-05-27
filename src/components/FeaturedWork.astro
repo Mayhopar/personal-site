@@ -30,7 +30,8 @@ duration-150
             width={1340}
             format="webp"
             class="w-full aspect-thumbnail object-cover mb-0 rounded-md lg:rounded-xl"
-            transition:name={"cover:" + work.data.title}>
+            transition:name={"cover:" + work.data.title}
+        >
         </Image>
         <div class="flex
         flex-row 
@@ -115,3 +116,10 @@ duration-150
         </div>
     </a>
 </article>
+<style>
+img {
+    animation: astroFadeIn 125ms cubic-bezier(0.76, 0, 0.24, 1) delay(0s),
+                astroFadeOut 360ms cubic-bezier(0.76, 0, 0.24, 1) delay(0s);
+}
+
+</style>
