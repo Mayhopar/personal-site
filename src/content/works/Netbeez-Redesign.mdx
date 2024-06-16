@@ -17,6 +17,8 @@ import DoubleImage from '../../components/DoubleImage.astro';
 import SingleVideo from '../../components/SingleVideo.astro';
 import ImageVideo from '../../components/ImageVideo.astro';
 import DoubleVideo from '../../components/DoubleVideo.astro';
+import Credit from '../../components/Credit.astro';
+import CreditWrapper from '../../components/CreditWrapper.astro';
 
 import Scheme from './images/NetBeez/Scheme.jpg';
 import ScreenMap from './images/NetBeez/ScreenMap.mp4';
@@ -32,6 +34,11 @@ import Frame2 from './images/NetBeez/Frame2.jpg';
 import Frame3 from './images/NetBeez/Frame3.jpg';
 import Palette from './images/NetBeez/Palette.jpg';
 import Chartset from './images/NetBeez/Chartset.jpg';
+
+import Gridelli from './images/People/gridelli.jpeg';
+import Neophytou from './images/People/neophytou.jpeg';
+import Chernobai from './images/People/chernobai.jpeg';
+import Lysevich from './images/People/lysevich.jpeg';
 
 #### <span class="text-gray-700">NetBeez is a network inspection tool backed by YC.</span><br/>I have enjoyed developing the plan for its redesign and overseeing its implementation, collaborating closely with the founders.
 
@@ -106,3 +113,14 @@ Targets inherited a similar design. On top, there's a table with all websites us
 <SingleVideo src={Wifi} caption="Wi-Fi inspection flow."/>
 
 At this point, Wi-Fi follows the same design patterns.
+
+---
+
+### Built With
+
+<CreditWrapper>
+    <Credit src={Gridelli} url="https://www.linkedin.com/in/stefanogridelli/" name="Stefano Gridelli" role="CEO & co-founder"/>
+    <Credit src={Neophytou} url="https://www.linkedin.com/in/panickos/" name="Panickos Neophytou" role="CTO & co-founder"/>
+    <Credit src={Lysevich} url="https://www.linkedin.com/in/unpositive/" name="Anton Lysevich" role="Product manager"/>
+    <Credit src={Chernobai} url="https://www.linkedin.com/in/yana-chernobai-864041151/" name="Yana Chernobai" role="Lead product designer"/>
+</CreditWrapper>

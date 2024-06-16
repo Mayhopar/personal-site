@@ -18,6 +18,8 @@ import DoubleImage from '../../components/DoubleImage.astro';
 import SingleVideo from '../../components/SingleVideo.astro';
 import ImageVideo from '../../components/ImageVideo.astro';
 import DoubleVideo from '../../components/DoubleVideo.astro';
+import Credit from '../../components/Credit.astro';
+import CreditWrapper from '../../components/CreditWrapper.astro';
 
 import Architecture from './images/Timepad/Architecture.png';
 import Navigation from './images/Timepad/Navigation.mp4';
@@ -35,6 +37,14 @@ import Profile from './images/Timepad/Profile.png';
 import Afisha from './images/Timepad/Afisha.mp4';
 import MobileProduct from './images/Timepad/MobileProduct.mp4';
 import MobileAfisha from './images/Timepad/MobileAfisha.mp4';
+
+import Semenikhina from './images/People/semenikhina.jpeg';
+import Ukhanov from './images/People/ukhanov.jpeg';
+import Guzhov from './images/People/guzhov.jpeg';
+import Petrichenko from './images/People/petrichenko.jpeg';
+import Davydova from './images/People/davydova.jpeg';
+import Volchunovich from './images/People/volchunovich.jpeg';
+import Gainulin from './images/People/gainulin.jpeg';
 
 
 #### <span class="text-gray-700">Timepad is an event platform where organizers create events, and participants buy tickets.</span> I worked as a design director there and developed strategy for redesign which I led for two years. As well as built a team and implemented new hiring pipeline.
@@ -134,3 +144,19 @@ Designed a main page, called Afisha, to showcase all platform events and ensure 
 <figcaption>Mobile layout had 6 columns and different navigation on a SaaS side.</figcaption>
 
 We also focused on optimizing the user experience for mobile devices to ensure productivity on the go.
+
+---
+
+### Main collaborators
+
+<CreditWrapper>
+    <Credit src={Semenikhina} url="https://www.linkedin.com/in/semenihina/" name="Varvara Semenikhina" role="CEO"/>
+    <Credit src={Ukhanov} url="https://www.linkedin.com/in/xor777/" name="Dmitry Ukhanov" role="CTO"/>
+    <Credit src={Guzhov} url="https://www.linkedin.com/in/dmitry-guzhov-70665a236/" name="Dmitry Gyzhov" role="Head of backend development"/>
+    <Credit src={Petrichenko} url="https://www.linkedin.com/in/eugene-petrichenko/" name="Eugene Petrichenko" role="Head of frontend development"/>
+    <Credit src={Davydova} url="https://www.linkedin.com/in/davydovas/" name="Stasya Davydova" role="Head of core platform"/>
+    <Credit src={Volchunovich} url="https://www.linkedin.com/in/artem-volchunovich-96534b233/" name="Artem Volchunovich" role="Fronend engineer"/>
+    <Credit src={Gainulin} url="https://www.linkedin.com/in/ivan-gainulin-259701170/" name="Ivan Gainulin" role="Lead product designer"/>
+</CreditWrapper>
+
+

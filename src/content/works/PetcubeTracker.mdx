@@ -19,6 +19,8 @@ import SingleVideo from '../../components/SingleVideo.astro';
 import ImageVideo from '../../components/ImageVideo.astro';
 import DoubleVideo from '../../components/DoubleVideo.astro';
 import TrippleVideo from '../../components/TrippleVideo.astro';
+import Credit from '../../components/Credit.astro';
+import CreditWrapper from '../../components/CreditWrapper.astro';
 
 import Graph from './images/PetcubeTracker/graph.png';
 import SashasDog from './images/PetcubeTracker/sashasDog.mp4';
@@ -38,6 +40,13 @@ import MovingHistoryVid from './images/PetcubeTracker/movingHistory.mp4';
 import MovingHistoryImg from './images/PetcubeTracker/movingHistory.jpg';
 import Fence from './images/PetcubeTracker/fence.mp4';
 import PH from './images/PetcubeTracker/ph.png';
+
+import Klen from './images/People/klen.jpeg';
+import Smieltsov from './images/People/smieltsov.jpeg';
+import Kachanovsky from './images/People/kachanovsky.jpeg';
+import Shevchuk from './images/People/shevshuk.jpeg';
+import Kasian from './images/People/kasian.jpeg';
+import Lysevich from './images/People/lysevich.jpeg';
 
 #### <span class="text-gray-700">The Petcube Tracker is a GPS tracking device designed for pets, offering real-time location tracking, virtual fencing, and activity monitoring.</span> I directed and supervised the product design of the app and marketing website.
 
@@ -124,3 +133,16 @@ Petcube Tracker launched on February 6, 2024. It earned 'product of the day' and
 ### Acknowledgments
 
 I extend my gratitude to Andriy Klen for entrusting me with this legendary Ukrainian product. Working with the exceptionally talented designer Oleh Smieltsov and having the opportunity to hire Denis Kachanovsky, a young and sharp talent, was truly enriching. I learned immensely from everyone involved in this project.
+
+---
+
+### Built With
+
+<CreditWrapper>
+    <Credit src={Klen} url="https://www.linkedin.com/in/andreyklen/" name="Andriy Klen" role="CMO & co-founder"/>
+    <Credit src={Smieltsov} url="https://www.linkedin.com/in/smltsw/" name="Oleh Smieltsov" role="Lead product designer"/>
+    <Credit src={Kachanovsky} url="https://www.linkedin.com/in/denys-kachanovsky-7062111a8/" name="Denys Kachanovsky" role="Product designer"/>
+    <Credit src={Shevchuk} url="https://www.linkedin.com/in/alexshevchuk/" name="Alex Shevchuk" role="CPO"/>
+    <Credit src={Kasian} url="https://www.linkedin.com/in/liz-kasian/" name="Liz Kasian" role="Product manager"/>
+    <Credit src={Lysevich} url="https://www.linkedin.com/in/unpositive/" name="Anton Lysevich" role="Product manager"/>
+</CreditWrapper>

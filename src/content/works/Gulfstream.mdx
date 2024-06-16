@@ -17,6 +17,8 @@ import DoubleImage from '../../components/DoubleImage.astro';
 import SingleVideo from '../../components/SingleVideo.astro';
 import ImageVideo from '../../components/ImageVideo.astro';
 import DoubleVideo from '../../components/DoubleVideo.astro';
+import Credit from '../../components/Credit.astro';
+import CreditWrapper from '../../components/CreditWrapper.astro';
 
 import Scheme from './images/Gulfstream/scheme.png';
 import Concept from './images/Gulfstream/concept.mp4';
@@ -27,6 +29,12 @@ import Photo2 from './images/Gulfstream/photo2.png';
 import Icons from './images/Gulfstream/Icons.png';
 import Prototype from './images/Gulfstream/prototypes.mp4';
 import Demo from './images/Gulfstream/demo.mp4';
+
+import Borzov from './images/People/borzov.jpg';
+import Golota from './images/People/golota.jpeg';
+import Krupa from './images/People/krupeinikov.jpeg';
+import Lysevich from './images/People/lysevich.jpeg';
+import Chernobai from './images/People/chernobai.jpeg';
 
 #### <span class="text-gray-700">I led the redesign of a private jet app for a valued client, from conceptualization to leading the final sales call that secured the project. </span> As the project progressed, I guided the design development, collaborated closely with the team, and ensured client satisfaction through regular communication.
 
@@ -62,3 +70,15 @@ A high level of detail was crucial for our collaboration with the developers, wh
 <figcaption>App's demo mode.</figcaption>
 
 The first phase of the project was successfully delivered, and the client is now using it on flights and is highly satisfied. This success has also introduced us to the Gulfstream team, so I presume there's more to come.
+
+---
+
+### Built With
+
+<CreditWrapper>
+    <Credit src={Borzov} url="https://www.linkedin.com/in/tyggy/" name="Anton Borzov" role="Advisor"/>
+    <Credit src={Golota} url="https://www.linkedin.com/in/julia-golota-5baa443/" name="Julia Golota" role="Account manager"/>
+    <Credit src={Krupa} url="https://www.linkedin.com/in/krupenikov/" name="Ilya Krupeinikov" role="Account manager"/>
+    <Credit src={Lysevich} url="https://www.linkedin.com/in/unpositive/" name="Anton Lysevich" role="Product Manager"/>
+    <Credit src={Chernobai} url="https://www.linkedin.com/in/yana-chernobai-864041151/" name="Yana Chernobai" role="Lead product designer"/>
+</CreditWrapper>

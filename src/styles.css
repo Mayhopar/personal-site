@@ -111,6 +111,16 @@
         @apply w-full rounded-md lg:rounded-2xl;
     }
 
+    .creditWrapper {
+        @apply mx-auto 
+        max-w-[640px]
+        2xl:max-w-[768px] 
+    }
+
+    .credit p {
+        @apply !m-0;
+    }
+
     @media (min-width: 1024px) {
         video::-webkit-media-no-controls {
             display: none !important;

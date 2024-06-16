@@ -18,6 +18,8 @@ import DoubleImage from '../../components/DoubleImage.astro';
 import SingleVideo from '../../components/SingleVideo.astro';
 import ImageVideo from '../../components/ImageVideo.astro';
 import DoubleVideo from '../../components/DoubleVideo.astro';
+import Credit from '../../components/Credit.astro';
+import CreditWrapper from '../../components/CreditWrapper.astro';
 
 import Chart from './images/Inito/chart.jpg';
 import Ovulation from './images/Inito/ovulation.gif';
@@ -36,6 +38,11 @@ import Palette from './images/Inito/palette.jpg';
 import Icons from './images/Inito/icons.gif';
 import Icons2 from './images/Inito/icons2.gif';
 import Forms from './images/Inito/forms.jpg';
+
+import Rai from './images/People/rai.jpeg';
+import Honchar from './images/People/honchar.jpeg';
+import Tsymbaliuk from './images/People/tsymbaliuk.jpeg';
+import Lysevich from './images/People/lysevich.jpeg';
 
 #### <span class="text-gray-700">Inito helps women get pregnant by offering a hardware tester and an app to clear the fog on the road to pregnancy by highlighting fertility days and providing personalized cycle insights.</span> I was lucky to direct the product design effort and advocate user centered desicions before the CEO.
 
@@ -103,3 +110,14 @@ Inito has evolved from a fertility tracker to a support app, gaining consistent 
 
 <DoubleImage lalt='Color palette of Inito app' lsrc={Palette} ralt='Icons of Inito app' rsrc={Icons} caption=''/>
 <DoubleImage lalt='Icons of Inito app' lsrc={Icons2} ralt='Forms and smaller UI elements of Inito app' rsrc={Forms} caption='' customClass="!mt-4"/>
+
+---
+
+### Built With
+
+<CreditWrapper>
+    <Credit src={Rai} url="https://www.linkedin.com/in/aayushinito" name="Aayush Rai" role="CEO & co-founder"/>
+    <Credit src={Honchar} url="https://www.linkedin.com/in/maryna-honchar-designer/" name="Marina Honchar" role="Lead product designer"/>
+    <Credit src={Tsymbaliuk} url="https://www.linkedin.com/in/valeriia-tsymbaliuk-1687951a6/" name="Valeria Tsymbaliuk" role="Product designer"/>
+    <Credit src={Lysevich} url="https://www.linkedin.com/in/unpositive/" name="Anton Lysevich" role="Product manager"/>
+</CreditWrapper>
