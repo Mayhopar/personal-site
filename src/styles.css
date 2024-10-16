@@ -127,7 +127,7 @@
           }
     }
 
-    ::view-transition-old(cover_3aPetcube_20Tracker),
+    /* ::view-transition-old(cover_3aPetcube_20Tracker),
     ::view-transition-old(cover_3aGulfstream),
     ::view-transition-old(cover_3aInito),
     ::view-transition-old(cover_3aTimepad),
@@ -145,5 +145,5 @@
         animation-duration: 90ms;
         animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
         animation-fill-mode: both;
-    }
+    } */
 }
