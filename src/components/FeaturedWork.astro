@@ -1,0 +1,118 @@
+---
+import {type CollectionEntry, getEntryBySlug} from "astro:content"
+import { Image } from "astro:assets"
+
+type Props = {
+    work: CollectionEntry<"works">
+}
+
+const {work} = Astro.props
+---
+<article class="w-full
+mt-[16vh]
+mb-20
+lg:hover:scale-[1.01] 
+transition-all 
+lg:hover:duration-75 
+lg:hover:ease-in 
+ease-out 
+duration-150
+
+2xl:mb-10">
+    <a
+        href={`/works/${work.slug}`}
+        aria-label={`Read more about ${work.data.title}`}
+        class="grow"
+    >
+        <Image
+            src={work.data.image}
+            alt={work.data.title}
+            width={1340}
+            format="webp"
+            class="w-full aspect-thumbnail object-cover mb-0 rounded-md lg:rounded-xl"
+            transition:name={"cover:" + work.data.title}
+        >
+        </Image>
+        <div class="flex
+        flex-row 
+        gap-x-2
+        max-w-[484px] 
+        mx-auto 
+        2xl:prose-xl
+        items-center
+        relative">
+            <div class="flex flex-col
+            flex-wrap
+            relative
+            prose 
+            gap-x-2
+            2xl:prose-xl">
+                <h1 class="font-semibold
+                mt-4 
+                mb-0 
+                w-fit
+                text-gray-900 
+                2xl:mb-0
+                2xl:mt-7"
+                    transition:name={"title:" + work.data.title}>
+                    {work.data.title}
+                </h1>
+                <p class="description
+                text-gray-700 
+                w-fit
+                mt-[4px]
+                mb-0
+                2xl:mt-1
+                2xl:mb-0"
+                transition:name={"desc:" + work.data.title}>
+                    {work.data.description}
+                </p>
+                <p class="role
+                w-fit
+                mt-[2px]
+                !m-0
+                text-sm 
+                leading-5
+                text-transparent"
+                transition:name={"role:" + work.data.title}>
+                    {work.data.role}
+                </p>
+                <p class="year
+                w-fit
+                h-fit
+                text-right
+                text-xs
+                !m-0 
+                leading-5
+                top-[22px]
+                right-[495px]
+                text-nowrap
+                text-transparent
+                lg:absolute
+                lg:top-[20px]
+                lg:right-[498px]
+                lg:text-nowrap
+                lg:text-right
+
+                2xl:text-sm
+                2xl:m-0
+                2xl:top-[33px]
+                2xl:right-[496px]"
+                transition:name={"year:" + work.data.title}>
+                    {work.data.year}
+                </p>
+            </div>
+            <span class="rounded-full
+                px-4 py-2 
+                grow-0 
+                h-min 
+                !text-base
+                bg-transparent	
+                text-transparent	
+                transition-all
+                absolute
+                right-0"
+                transition:name={"button:" + work.data.title}>Website</span>
+        </div>
+    </a>
+</article>

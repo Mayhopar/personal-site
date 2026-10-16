@@ -1,0 +1,29 @@
+---
+/**
+ * @category Blog
+ * @name BlogPaginationNumbered
+ */
+// Astro's paginate() hands the listing page a `page` object; a bound page
+// (task-240) passes it here. With no page (component view, slot fallback)
+// the static preview renders.
+const { page } = Astro.props;
+const base = page ? page.url.current.replace(/\/\d+\/?$/, '').replace(/\/$/, '') : '';
+const hrefFor = (n) => (page ? (n === 1 ? base || '/' : `${base}/${n}`) : undefined);
+const numbers = page ? Array.from({ length: page.lastPage }, (_, i) => i + 1) : [1, 2, 3];
+const current = page ? page.currentPage : 1;
+const prev = page ? page.url.prev : undefined;
+const next = page ? page.url.next : undefined;
+---
+<nav aria-label="Pagination" class="flex items-center justify-center gap-2 mt-8">
+  <a href={prev} class="px-3 py-2 text-sm rounded border border-gray-300 hover:bg-gray-100">
+    Previous
+  </a>
+  {numbers.map((n) => (
+    n === current
+      ? <a href={hrefFor(n)} aria-current="page" class="px-3 py-2 text-sm rounded border bg-gray-900 text-white border-gray-900">{n}</a>
+      : <a href={hrefFor(n)} class="px-3 py-2 text-sm rounded border border-gray-300 hover:bg-gray-100">{n}</a>
+  ))}
+  <a href={next} class="px-3 py-2 text-sm rounded border border-gray-300 hover:bg-gray-100">
+    Next
+  </a>
+</nav>

@@ -1,0 +1,108 @@
+---
+/**
+ * sq-post-layout-v2 — how every post looks (Starquix). Yours to edit.
+ * header: classic (Medium-like) · centered (Substack-like) · cover (image first).
+ * Each piece shows only when it is switched on AND the post has the data;
+ * a post can hide one with frontmatter (hideCover, hideAuthor, hideDate,
+ * hideReadingTime, hideSubtitle: true).
+ */
+import Post from './Post.astro';
+import '../components/sq/sq-utilities.css';
+import '../styles/sq-variables.css';
+
+interface Props {
+  post: { data?: Record<string, any>; body?: string };
+  header?: 'classic' | 'centered' | 'cover';
+  showSubtitle?: boolean;
+  showAuthor?: boolean;
+  showDate?: boolean;
+  showReadingTime?: boolean;
+  showCover?: boolean;
+}
+
+const {
+  post,
+  header = 'classic',
+  showSubtitle = true,
+  showAuthor = true,
+  showDate = true,
+  showReadingTime = true,
+  showCover = true,
+} = Astro.props;
+
+const d = post?.data ?? {};
+const pick = (...keys: string[]) => {
+  for (const k of keys) {
+    const v = d[k];
+    if (v !== undefined && v !== null && v !== '') return v;
+  }
+  return undefined;
+};
+const hidden = (k: string) => d[k] === true;
+const srcOf = (v: any): string | undefined => (typeof v === 'string' ? v : v?.src);
+
+const rawTitle = pick('title');
+const hasTitle = typeof rawTitle === 'string' && rawTitle.trim() !== '';
+const title = hasTitle ? rawTitle : 'Untitled';
+const subtitle = showSubtitle && !hidden('hideSubtitle') ? pick('subtitle', 'description', 'excerpt') : undefined;
+const cover = showCover && !hidden('hideCover') ? srcOf(pick('image', 'cover', 'heroImage', 'thumbnail')) : undefined;
+const author = showAuthor && !hidden('hideAuthor') ? pick('author') : undefined;
+const authorName = typeof author === 'string' ? author : author?.name;
+const authorAvatar = typeof author === 'object' ? srcOf(author?.avatar) : undefined;
+const rawDate = showDate && !hidden('hideDate') ? pick('date', 'pubDate', 'publishDate') : undefined;
+const date = rawDate ? new Date(rawDate) : null;
+const dateText = date && !isNaN(date.getTime())
+  ? date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
+  : null;
+const words = showReadingTime && !hidden('hideReadingTime')
+  ? String(post?.body ?? '')
+      .replace(/^(import|export)\s.*$/gm, ' ')
+      .replace(/<[^>]*>/g, ' ')
+      .split(/\s+/)
+      .filter((w) => /[\p{L}\p{N}]/u.test(w)).length
+  : 0;
+const readingText = words ? `${Math.max(1, Math.round(words / 230))} min read` : null;
+const meta = [dateText, readingText].filter(Boolean);
+// No image → the cover header has nothing to lead with: classic instead.
+const variant = header === 'cover' && !cover ? 'classic' : header;
+---
+
+<Post title={title} backHref="/blog" description={typeof d.description === 'string' ? d.description : undefined}>
+  <main class="w-full bg-white md:pt-4">
+  <article data-sq-post-layout={variant} dir="auto">
+    {variant === 'cover' && cover && (
+      <img src={cover} alt="" loading="eager" decoding="async" class="block relative left-1/2 -translate-x-1/2 w-screen max-w-none aspect-[16/9] sm:aspect-[21/9] max-h-[70vh] object-cover" />
+    )}
+    <header class:list={['mx-auto w-full max-w-[640px] box-border px-0 sm:px-6 xl:px-0 2xl:max-w-[768px] 2xl:px-0', 'pt-10 sm:pt-16 pb-8 sm:pb-10', variant === 'centered' && 'text-center [&_.sq-meta]:justify-center']}>
+      <h1 class:list={['text-3xl 2xl:text-4xl leading-tight font-semibold text-gray-900 [overflow-wrap:anywhere] m-0 w-fit', variant === 'centered' && 'mx-auto', !hasTitle && 'opacity-40']} transition:name={"post-title:" + title}>{title}</h1>
+      {subtitle && <p class:list={['mt-2 text-lg 2xl:text-xl leading-snug text-gray-600 [overflow-wrap:anywhere] m-0 w-fit', variant === 'centered' && 'mx-auto']} transition:name={"post-subtitle:" + title}>{subtitle}</p>}
+      {(authorName || meta.length > 0) && (
+        <div class="sq-meta mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm leading-5 text-gray-400">
+          {authorAvatar && <img src={authorAvatar} alt="" class="h-10 w-10 rounded-full object-cover shrink-0" loading="eager" />}
+          {authorName && <span class="font-medium">{authorName}</span>}
+          {meta.map((m, i) => (
+            <span class="inline-flex items-center gap-3 whitespace-nowrap">
+              {(authorName || i > 0) && <span aria-hidden="true" class="opacity-40">·</span>}
+              {m === dateText
+                ? <span class="opacity-60" transition:name={"post-date:" + title}>{m}</span>
+                : <span class="opacity-60">{m}</span>}
+            </span>
+          ))}
+        </div>
+      )}
+      {variant !== 'cover' && cover && (
+        <img
+          src={cover}
+          alt=""
+          loading="eager"
+          decoding="async"
+          class={variant === 'classic' ? 'block mt-8 sm:mt-10 aspect-[16/9] object-cover rounded-md lg:rounded-xl relative left-1/2 -translate-x-1/2 w-[min(64rem,calc(100vw-2.5rem))] sm:w-[min(64rem,calc(100vw-3rem))] max-w-none' : 'block mt-8 sm:mt-10 w-full aspect-[16/9] object-cover rounded-md lg:rounded-xl'}
+        />
+      )}
+    </header>
+    <div class="mx-auto w-full max-w-[640px] box-border text-base leading-7 text-gray-600 [overflow-wrap:break-word] [--sq-u:1rem] [&_:is(h1,h2,h3,h4,h5,h6)]:text-gray-900 [--sq-section:3rem] [&>:first-child]:mt-0 [&_:where(p,ul,ol,blockquote,pre,figure,table,hr,h1,h2,h3,h4,h5,h6)]:my-0 [&_[data-sq-stack]]:mb-0 [&_[data-sq-block]>[data-sq-stack]]:my-0 [&_*+:is(p,ul,ol)]:mt-[calc(var(--sq-u)*1.4)] [&_*+:is(blockquote,pre,figure,table)]:mt-[calc(var(--sq-u)*1.6)] [&_*+[data-sq-unit=media]]:mt-[calc(var(--sq-u)*1.6)] [&_*+[data-sq-block]]:mt-[calc(var(--sq-u)*1.6)] [&&&_:is(blockquote,pre,figure,table)+*]:mt-[calc(var(--sq-u)*1.6)] [&&&_[data-sq-unit=media]+*]:mt-[calc(var(--sq-u)*1.6)] [&&&_[data-sq-block]+*]:mt-[calc(var(--sq-u)*1.6)] [&&&&&_*+hr]:mt-[calc(var(--sq-u)*2.4)] [&&&&&_hr+*]:mt-[calc(var(--sq-u)*2.4)] [&&&&&&_*+:is(h1,h2)]:mt-[calc(var(--sq-u)*2.8)] [&&&&&&_*+h3]:mt-[calc(var(--sq-u)*2)] [&&&&&&_*+:is(h4,h5,h6)]:mt-[calc(var(--sq-u)*1.4)] [&&&&&&&_*+[data-sq-stack]]:mt-[var(--sq-section)] [&&&&&&&_[data-sq-stack]+*]:mt-[var(--sq-section)] [&&&&&&&_*+[data-sq-block]:has(>[data-sq-stack])]:mt-[var(--sq-section)] [&&&&&&&_[data-sq-block]:has(>[data-sq-stack])+*]:mt-[var(--sq-section)] [&&&&&&&&&&_:is(h1,h2)+*]:mt-[calc(var(--sq-u)*0.8)] [&&&&&&&&&&_:is(h3,h4,h5,h6)+*]:mt-[calc(var(--sq-u)*0.5)] [&&&&&&&&&&&&_[data-sq-colored]+[data-sq-colored]]:mt-0 [&&&&&&&&&&&&_[data-sq-block]:has(>[data-sq-colored])+[data-sq-block]:has(>[data-sq-colored])]:mt-0 [&&&&&&&&&&&&&&_[data-sq-stack=row]>*]:mt-0 [&>.col-span-12]:relative [&>.col-span-12]:left-1/2 [&>.col-span-12]:-translate-x-1/2 [&>.col-span-12]:max-w-none [&>.col-span-12]:w-[min(64rem,calc(100vw-2.5rem))] [&>[data-sq-block]>.col-span-12]:relative [&>[data-sq-block]>.col-span-12]:left-1/2 [&>[data-sq-block]>.col-span-12]:-translate-x-1/2 [&>[data-sq-block]>.col-span-12]:max-w-none [&>[data-sq-block]>.col-span-12]:w-[min(64rem,calc(100vw-2.5rem))] [&>.col-span-full]:relative [&>.col-span-full]:left-1/2 [&>.col-span-full]:-translate-x-1/2 [&>.col-span-full]:max-w-none [&>.col-span-full]:w-screen [&>[data-sq-block]>.col-span-full]:relative [&>[data-sq-block]>.col-span-full]:left-1/2 [&>[data-sq-block]>.col-span-full]:-translate-x-1/2 [&>[data-sq-block]>.col-span-full]:max-w-none [&>[data-sq-block]>.col-span-full]:w-screen [&_:is(h1,h2)]:text-xl [&_:is(h1,h2)]:leading-snug [&_:is(h1,h2)]:font-semibold [&_:is(h1,h2)]:tracking-[-0.015em] [&_h3]:text-[1.375rem] [&_h3]:leading-[1.3] [&_h3]:font-bold [&_:is(h4,h5,h6)]:text-[1.125rem] [&_:is(h4,h5,h6)]:leading-[1.4] [&_:is(h4,h5,h6)]:font-bold [&_:is(ul,ol)]:pl-[1.5em] [&_ul]:list-disc [&_ol]:list-decimal [&_li]:my-[0.35em] [&_li]:pl-[0.2em] [&_li>:is(ul,ol)]:my-[0.2em] [&_li>p]:my-0 [&_blockquote]:mx-0 [&_blockquote]:[border-left:3px_solid_color-mix(in_srgb,currentColor_20%,transparent)] [&_blockquote]:pl-[1.2em] [&_blockquote]:text-[1.1em] [&_blockquote]:italic [&_blockquote>p]:my-[0.6em] [&_a]:text-inherit [&_a]:underline [&_a]:underline-offset-[3px] [&_a]:decoration-[1px] [&_a]:decoration-[color:color-mix(in_srgb,currentColor_40%,transparent)] [&_strong]:font-semibold [&_:not(pre)>code]:text-[0.9em] [&_:not(pre)>code]:px-[0.3em] [&_:not(pre)>code]:py-[0.1em] [&_:not(pre)>code]:rounded [&_:not(pre)>code]:bg-[color-mix(in_srgb,currentColor_8%,transparent)] [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:text-[0.85em] [&_pre]:leading-[1.55] [&_pre]:max-w-full [&_pre]:bg-[color-mix(in_srgb,currentColor_6%,transparent)] [&_:is(img,video)]:max-w-full [&_:is(img,video)]:h-auto [&_img]:rounded-md [&_figcaption]:mt-3 [&_figcaption]:text-[0.875rem] [&_figcaption]:opacity-60 [&_figcaption]:text-center [&_hr]:border-0 [&_hr]:h-auto [&_hr]:text-center [&_hr]:before:content-['•_•_•'] [&_hr]:before:tracking-[0.6em] [&_hr]:before:opacity-60 [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto [&_table]:border-collapse [&_table]:text-[0.9em] [&_:is(th,td)]:[border-bottom:1px_solid_color-mix(in_srgb,currentColor_15%,transparent)] [&_:is(th,td)]:px-3 [&_:is(th,td)]:py-2 [&_th]:text-left [&&_:is(th,td):first-child]:pl-0 print:[&_[data-sq-stack]]:!bg-transparent px-0 pb-[20vh] hover:[&_a]:decoration-current sm:px-6 sm:[&>.col-span-12]:w-[min(64rem,calc(100vw-3rem))] sm:[&>[data-sq-block]>.col-span-12]:w-[min(64rem,calc(100vw-3rem))] md:[--sq-section:4rem] md:[&_h3]:text-[1.5rem] md:[&_:is(h4,h5,h6)]:text-[1.25rem] xl:px-0 2xl:max-w-[768px] 2xl:text-xl 2xl:[--sq-u:1.25rem] 2xl:[&_:is(h1,h2)]:text-2xl">
+      <slot />
+    </div>
+  </article>
+  </main>
+</Post>

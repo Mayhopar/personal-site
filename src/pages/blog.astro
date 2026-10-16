@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import BlogSlot from '../components/BlogSlot.astro';
+import Layout from '../layouts/Main.astro';
+import Main from '../components/Main.astro';
+import BlogCard from '../components/BlogCard.astro';
+const posts = (await getCollection('blog', (p) => !p.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout bodyClass="font-['SuisseIntl'] bg-slate-50" title="Oleg Mayhopar | Blog">
+  <Main>
+  <BlogSlot>
+    <Fragment slot="posts">
+      {posts.map((post) => <a href={`/blog/${post.slug}`} class="block" data-sq-post-slug={post.slug}><BlogCard post={post} /></a>)}
+    </Fragment>
+  </BlogSlot>
+  </Main>
+</Layout>

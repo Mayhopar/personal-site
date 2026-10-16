@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Main.astro';
+import Main from '../components/Main.astro';
+import { Image } from "astro:assets";
+import BlogSlot from '../components/BlogSlot.astro';
+import FeaturedWork from '../components/FeaturedWork.astro';
+import WorkCard from '../components/WorkCard.astro';
+
+const posts = (await getCollection('works', (p) => p.data.featured))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+const posts2 = (await getCollection('works', (p) => !p.data.featured))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout bodyClass="font-['SuisseIntl'] bg-slate-50" title="Oleg Mayhopar | Works">
+	<Main>
+		<BlogSlot sectionClass="" postsClass="featured-wrapper mx-auto pt-[2vh] lg:w-[640px] 2xl:w-[768px] zoom-in">
+		  <Fragment slot="posts">
+		    {posts.map((post) => <div class="contents" data-sq-post-slug={post.slug}><FeaturedWork work={post} /></div>)}
+		  </Fragment>
+		</BlogSlot>
+		<BlogSlot sectionClass="" postsClass="grid w-full basis-full col-span-full grid-cols-2 px-20 gap-20">
+		  <Fragment slot="posts">
+		    {posts2.map((post) => <div class="contents" data-sq-post-slug={post.slug}><WorkCard work={post} /></div>)}
+		  </Fragment>
+		</BlogSlot>
+	</Main>
+</Layout>

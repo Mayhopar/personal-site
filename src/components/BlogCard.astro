@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+/**
+ * @category Blog
+ * @name BlogCard
+ * @sq-backdrop #000000
+ */
+// Standalone safety: BlogSlot's slot fallback renders <BlogCard /> with no
+// post prop (crashes any real project the file is copied into otherwise).
+// The editor's collections pipeline always supplies real data.
+type Props = { post?: CollectionEntry<"blog"> };
+const { post: postProp } = Astro.props;
+const post = postProp ?? {
+  data: { title: 'Sample post', description: 'A short description of this post.', date: '2026-01-01', thumbnail: 'Thumbnail' },
+};
+const date = new Date(post.data.date);
+const dateText = isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+// sq:fields — what each collection shows in this card ('!x' = x hidden); Starquix keeps it in sync
+const fields = {
+  'blog': { title: 'title', subtitle: 'subtitle' },
+};
+const f = (slot: string): any => { const s = (fields as Record<string, Record<string, string | null>>)[post.collection]; const k = s ? s[slot] : slot; return k && k[0] !== '!' ? (post.data as Record<string, any>)[k] : undefined; };
+---
+<article class="group lg:hover:scale-[1.015] transition-all">
+  <div class="flex flex-col">
+    <h3 class="font-semibold text-gray-900 mt-0 mb-0 w-fit" transition:name={"post-title:" + post.data.title}>{f('title')}</h3>
+    {f('subtitle') && <p class="text-sm w-fit" transition:name={"post-subtitle:" + post.data.title}>{f('subtitle')}</p>}
+    <time class="text-gray-400 text-xs leading-5 m-0 block w-fit" transition:name={"post-date:" + post.data.title} datetime={isNaN(date.getTime()) ? undefined : date.toISOString()}>{post.data.date && new Date(post.data.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time>
+  </div>
+</article>

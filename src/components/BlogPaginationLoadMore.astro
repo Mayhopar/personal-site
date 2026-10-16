@@ -1,0 +1,37 @@
+---
+/**
+ * @category Blog
+ * @name BlogPaginationLoadMore
+ */
+// task-240: a bound page passes pageSize; the inline script hides every card
+// in the sibling posts grid past the first pageSize and reveals the next
+// batch per click — no per-card markup needed (the grid is BlogSlot's
+// [data-blog-source="posts"]). With no props: a static preview.
+const { pageSize = 3 } = Astro.props;
+---
+<div class="flex justify-center mt-8">
+  <button class="px-6 py-3 text-sm rounded border border-gray-300 hover:bg-gray-100">
+    Load more
+  </button>
+</div>
+<script is:inline define:vars={{ pageSize }}>
+  (() => {
+    const box = document.currentScript && document.currentScript.previousElementSibling;
+    const section = box && box.closest('section');
+    const grid = section && section.querySelector('[data-blog-source="posts"]');
+    const button = box && box.querySelector('button');
+    if (!grid || !button) return;
+    let shown = pageSize;
+    let clicked = false;
+    // style.display, not the `hidden` attribute: Tailwind's preflight
+    // `[hidden]` rule is :where()-zero-specificity, so a card root carrying
+    // `.flex` / `.block` would stay visible (live-measured 2026-09-12).
+    const apply = () => {
+      const cards = Array.from(grid.children);
+      cards.forEach((el, i) => { el.style.display = i >= shown ? 'none' : ''; });
+      box.style.display = clicked && shown >= cards.length ? 'none' : '';
+    };
+    button.addEventListener('click', () => { clicked = true; shown += pageSize; apply(); });
+    apply();
+  })();
+</script>
