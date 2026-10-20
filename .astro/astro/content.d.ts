@@ -166,6 +166,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: any
 } & { render(): Render[".mdx"] };
+"yo-new-post.mdx": {
+	id: "yo-new-post.mdx";
+  slug: "yo-new-post";
+  body: string;
+  collection: "blog";
+  data: any
+} & { render(): Render[".mdx"] };
 };
 "works": {
 "Gulfstream.mdx": {

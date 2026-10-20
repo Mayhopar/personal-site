@@ -15,7 +15,7 @@ const posts2 = (await getCollection('works', (p) => !p.data.featured))
 
 <Layout bodyClass="font-['SuisseIntl'] bg-slate-50" title="Oleg Mayhopar | Works">
 	<Main>
-		<BlogSlot sectionClass="" postsClass="featured-wrapper mx-auto pt-[2vh] lg:w-[640px] 2xl:w-[768px] zoom-in">
+		<BlogSlot sectionClass="shadow-sm" postsClass="featured-wrapper mx-auto pt-[2vh] lg:w-[640px] 2xl:w-[768px] zoom-in">
 		  <Fragment slot="posts">
 		    {posts.map((post) => <div class="contents" data-sq-post-slug={post.slug}><FeaturedWork work={post} /></div>)}
 		  </Fragment>
