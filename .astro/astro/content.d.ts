@@ -159,6 +159,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: any
 } & { render(): Render[".mdx"] };
+"untitled-1792513832835.mdx": {
+	id: "untitled-1792513832835.mdx";
+  slug: "untitled-1792513832835";
+  body: string;
+  collection: "blog";
+  data: any
+} & { render(): Render[".mdx"] };
 };
 "works": {
 "Gulfstream.mdx": {

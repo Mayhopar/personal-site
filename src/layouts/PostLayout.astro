@@ -68,7 +68,7 @@ const variant = header === 'cover' && !cover ? 'classic' : header;
 ---
 
 <Post title={title} backHref="/blog" description={typeof d.description === 'string' ? d.description : undefined}>
-  <main class="w-full bg-white md:pt-4">
+  <main class="w-full bg-slate-50 md:pt-4">
   <article data-sq-post-layout={variant} dir="auto">
     {variant === 'cover' && cover && (
       <img src={cover} alt="" loading="eager" decoding="async" class="block relative left-1/2 -translate-x-1/2 w-screen max-w-none aspect-[16/9] sm:aspect-[21/9] max-h-[70vh] object-cover" />
