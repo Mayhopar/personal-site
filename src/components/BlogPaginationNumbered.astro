@@ -8,7 +8,7 @@
 // the static preview renders.
 const { page } = Astro.props;
 const base = page ? page.url.current.replace(/\/\d+\/?$/, '').replace(/\/$/, '') : '';
-const hrefFor = (n) => (page ? (n === 1 ? base || '/' : `${base}/${n}`) : undefined);
+const hrefFor = (n: number) => (page ? (n === 1 ? base || '/' : `${base}/${n}`) : undefined);
 const numbers = page ? Array.from({ length: page.lastPage }, (_, i) => i + 1) : [1, 2, 3];
 const current = page ? page.currentPage : 1;
 const prev = page ? page.url.prev : undefined;

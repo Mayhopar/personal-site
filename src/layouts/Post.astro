@@ -9,7 +9,8 @@ import '../styles/sq-variables.css';
 interface Props {
 	title: string;
 	description?: string;
-	image?: string
+	image?: string;
+	backHref?: string;
 }
 
 const { title, description = "Designs for user delight and company profit", image = "https://mayhopar.com/cover.jpg", backHref = "/" } = Astro.props;

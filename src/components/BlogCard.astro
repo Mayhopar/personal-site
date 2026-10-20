@@ -19,7 +19,7 @@ const dateText = isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-US', {
 const fields = {
   'blog': { title: 'title', subtitle: 'subtitle' },
 };
-const f = (slot: string): any => { const s = (fields as Record<string, Record<string, string | null>>)[post.collection]; const k = s ? s[slot] : slot; return k && k[0] !== '!' ? (post.data as Record<string, any>)[k] : undefined; };
+const f = (slot: string): any => { const s = (fields as Record<string, Record<string, string | null>>)[(post as any).collection]; const k = s ? s[slot] : slot; return k && k[0] !== '!' ? (post.data as Record<string, any>)[k] : undefined; };
 ---
 <article class="group lg:hover:scale-[1.015] transition-all">
   <div class="flex flex-col">
