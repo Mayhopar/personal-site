@@ -1,6 +1,6 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1); // remove the first "/"
+const currentPath = pathname.replace(import.meta.env.BASE_URL, "").replace(/^\//, ""); // remove the base path, then the first "/"
 ---
 
 <header class="w-full flex flex-row justify-between bg-slate-50 md:fixed">
