@@ -77,15 +77,13 @@ const variant = header === 'cover' && !cover ? 'classic' : header;
       <h1 class:list={['text-3xl 2xl:text-4xl leading-tight font-semibold text-gray-900 [overflow-wrap:anywhere] m-0 w-fit', variant === 'centered' && 'mx-auto', !hasTitle && 'opacity-40']} transition:name={"post-title:" + title}>{title}</h1>
       {subtitle && <p class:list={['mt-2 text-lg 2xl:text-xl leading-snug text-gray-600 [overflow-wrap:anywhere] m-0 w-fit', variant === 'centered' && 'mx-auto']} transition:name={"post-subtitle:" + title}>{subtitle}</p>}
       {(authorName || meta.length > 0) && (
-        <div class="sq-meta mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm leading-5 text-gray-400">
+        <div class="sq-meta mt-3 flex w-fit flex-wrap items-center gap-x-3 gap-y-1 text-sm leading-5 text-gray-400" transition:name={"post-date:" + title}>
           {authorAvatar && <img src={authorAvatar} alt="" class="h-10 w-10 rounded-full object-cover shrink-0" loading="eager" />}
           {authorName && <span class="font-medium">{authorName}</span>}
           {meta.map((m, i) => (
             <span class="inline-flex items-center gap-3 whitespace-nowrap">
               {(authorName || i > 0) && <span aria-hidden="true" class="opacity-40">·</span>}
-              {m === dateText
-                ? <span class="opacity-60" transition:name={"post-date:" + title}>{m}</span>
-                : <span class="opacity-60">{m}</span>}
+              <span>{m}</span>
             </span>
           ))}
         </div>
