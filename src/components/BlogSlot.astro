@@ -1,0 +1,19 @@
+---
+/**
+ * @category Blog
+ * @name BlogSlot
+ * @sq-chrome 2
+ * @default-children BlogCard:posts, BlogPaginationNumbered:pagination
+ */
+import BlogCard from './BlogCard.astro';
+---
+<section class={Astro.props.sectionClass ?? "w-full mx-auto pt-[16vh] pb-[20vh] lg:w-[640px] 2xl:w-[768px] flex flex-col"}>
+  <div class={Astro.props.postsClass ?? "grid grid-cols-1 gap-y-12 w-full basis-full col-span-full"} data-blog-source="posts">
+    <slot name="posts">
+      <BlogCard />
+    </slot>
+  </div>
+  <div class={Astro.props.paginationClass ?? "w-full basis-full col-span-full"} data-blog-source="pagination">
+    <slot name="pagination" />
+  </div>
+</section>

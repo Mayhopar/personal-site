@@ -1,0 +1,20 @@
+---
+import Back from '../components/Back.astro';
+import '../styles/sq-variables.css';
+interface Props { title?: string; }
+const { title = 'Layout1' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Back />
+    <slot />
+    <script is:inline src="/scripts/bridge.js"></script>
+  </body>
+</html>

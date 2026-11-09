@@ -1,0 +1,130 @@
+---
+/**
+ * sq-media-v2 — upgrade marker (utils/systemComponents SQ_UPGRADE_MARKERS).
+ * Content editor — the ONE media component (design §4).
+ *
+ * One component covers 1, 2 and 3 media: the count IS items.length, so 1 ↔ 2 ↔ 3
+ * is a non-destructive array edit rather than a component swap that would throw
+ * away the existing sources and their alt text.
+ *
+ * WIDTH IS A CLASS, NEVER A PROP. The `class` written on the <Media/> invocation
+ * in the .mdx is a plain string literal — the easiest possible shape for the
+ * existing class writer — and it is what the DesignBar edits, so responsive
+ * breakpoints come free from the existing breakpoint machinery.
+ *
+ * A null entry renders the placeholder box; clicking it opens the editor's own
+ * media dialog and the upload writes the path back into the array.
+ *
+ * Style knobs are real numeric PROPS (task-207 D10). They were CSS variables on
+ * the invocation's style attr (task-206 D2); the vars are still what the CSS
+ * consumes, but the component now emits them itself from the props — and emits
+ * them AFTER any inherited `style`, so a prop beats a legacy
+ * style="--sq-media-gap: 16px" by cascade order. Additive: old invocations keep
+ * rendering exactly as before, no migration, no .bak.
+ * The knob surface is CLOSED — only what this scoped style consumes exists.
+ *
+ * The <style> is `is:inline` ON PURPOSE: the component viewer
+ * (SqComponentView) loads this file via a dynamic `@vite-ignore` import, so
+ * Astro's static style collection never sees a scoped style and the
+ * placeholders render collapsed/unstyled there. Inline ships the CSS with the
+ * markup in every runtime. Selectors are .sq-media-* namespaced, so going
+ * unscoped is safe; the duplication cost is one small block per invocation.
+ */
+interface Props {
+  /** @media */
+  items?: (string | null)[];
+  class?: string;
+  /** Inherited from the invocation; our own vars are emitted AFTER it so a
+   *  prop always beats a legacy `style="--sq-media-gap: 16px"` (task-207 D10). */
+  style?: string;
+  alt?: string[];
+  /** @unit px */
+  gap?: number;
+  /** @label Padding @unit px */
+  pad?: number;
+  /** @unit px */
+  margin?: number;
+  /** @unit px */
+  radius?: number;
+  /** Rest props are FORWARDED to the root on purpose: the editor's rehype pass
+   *  stamps the .mdx invocation's own body range onto this tag, and those
+   *  attributes only reach the DOM if the component passes them through. Without
+   *  the spread, an edit to this invocation's class or items would have to guess
+   *  which lines of the file it lives on. */
+  [key: `data-${string}`]: string | undefined;
+}
+const {
+  items = [null], class: cls = 'col-span-8', alt = [],
+  style: inherited, gap, pad, margin, radius, ...rest
+} = Astro.props;
+const count = Math.max(items.length, 1);
+const isVideo = (s: string) => /\.(mp4|webm|mov)(\?|$)/i.test(s);
+const knobs: Array<[string, number | undefined]> = [
+  ['gap', gap], ['pad', pad], ['margin', margin], ['radius', radius],
+];
+// Ours LAST so a prop overrides an inherited legacy var of the same name.
+const style = [
+  inherited,
+  `--sq-media-count:${count}`,
+  ...knobs.filter(([, v]) => v != null).map(([k, v]) => `--sq-media-${k}:${v}px`),
+].filter(Boolean).join(';');
+---
+{/* data-sq-unit is the editor's SELECTION-UNIT contract: any click inside an
+    element carrying it selects that element (the bridge walks to it). It is an
+    attribute, not the class, so future system components opt in without
+    bridge changes and CSS stays free to evolve. */}
+<div {...rest} data-sq-unit="media" data-sq-media-count={count} class:list={['sq-media', cls]} style={style}>
+  {
+    items.map((src, i) =>
+      src ? (
+        isVideo(src) ? (
+          <video src={src} autoplay muted loop playsinline data-sq-media-slot={i} />
+        ) : (
+          <img src={src} alt={alt[i] ?? ''} loading="lazy" data-sq-media-slot={i} />
+        )
+      ) : (
+        /* data-sq-media="true" reuses the placeholder artwork the local plugin
+           already injects for that selector, rather than inventing a second one. */
+        <button
+          type="button"
+          class="sq-media-placeholder"
+          data-sq-media-slot={i}
+          data-sq-media="true"
+          aria-label="Add media"
+        />
+      ),
+    )
+  }
+</div>
+<style is:inline>
+  .sq-media {
+    display: grid;
+    grid-template-columns: repeat(var(--sq-media-count), minmax(0, 1fr));
+    gap: var(--sq-media-gap, 1rem);
+    padding: var(--sq-media-pad, 0);
+    margin: var(--sq-media-margin, 0);
+  }
+  /* a row of three stacks on a phone (three ~100px tiles read as thumbnails); a pair stays side by side */
+  @media (max-width: 639.98px) {
+    .sq-media[data-sq-media-count="3"] { grid-template-columns: minmax(0, 1fr); }
+  }
+  .sq-media img,
+  .sq-media video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--sq-media-radius, 0);
+  }
+  .sq-media-placeholder {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    border-radius: var(--sq-media-radius, 0);
+    /* Self-contained placeholder artwork (same tile the local plugin injects
+       for [data-sq-media]) — baked in so it shows in EVERY runtime, including
+       the component viewer and WC, without depending on runtime injection. */
+    background: #e2e8f0 url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201200%20800%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Crect%20width%3D%221200%22%20height%3D%22800%22%20fill%3D%22%23e2e8f0%22%2F%3E%3Ccircle%20cx%3D%22880%22%20cy%3D%22235%22%20r%3D%2272%22%20fill%3D%22%2394a3b8%22%2F%3E%3Cpath%20d%3D%22M96%20640%20L478%20288%20L780%20640%20Z%22%20fill%3D%22%23cbd5e1%22%2F%3E%3Cpath%20d%3D%22M570%20640%20L834%20394%20L1104%20640%20Z%22%20fill%3D%22%2394a3b8%22%2F%3E%3C%2Fsvg%3E") center / cover no-repeat;
+  }
+</style>

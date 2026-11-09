@@ -1,0 +1,27 @@
+---
+title: "Why I made an Astro.js visual editor"
+subtitle: "A Mac app where you, your mouse and your AI agent all edit the same real files."
+date: "2026-11-07"
+draft: true
+---
+import DownloadCard from '../../components/DownloadCard.astro';
+
+<DownloadCard href="https://github.com/Mayhopar/Starquix-releases/releases/download/v0.3.0/Starquix-0.3.0-arm64.dmg" title="Starquix for Mac" label=".dmg" button="Download from" />
+
+It was summer 2024. I had just built my portfolio (this website) on Astro and felt liberated from years of disgusting WordPress slavery, when I was asked to tackle a marketing website built on Webflow.
+
+To say that I wasn't happy with their UX would be a huge understatement. I was even more horrified when I exported the website to edit the code, bypassing the UI, and had the same sensation as Neo in The Matrix when they showed him the screen for the first time. Oh yeah, and Webflow also invoiced the company I worked with $60k to let people edit the website simultaneously. I was very pissed.
+
+The next morning I went to walk my dog and, via voice, prompted Perplexity to build me a prototype of a canvas with drag-and-drop components. Then I sent it to my homie with a pitch of easy money: convert it from pure HTML to Astro.
+
+Now, two years later, knowing what it means to be an entrepreneur in Germany, I don't want to make any money from it. But I do want to exercise my knowledge of modular component systems and celebrate Astro.js, because I really do love it and believe it's good for the internet.
+
+### What is Starquix?
+
+Astro has this space theme and lets people create websites. And those websites are like stars in the endless universe of the internet. What if those stars could be created quicker? Star-quix takes care of the acceleration. Yes, I cringe at the naming too.
+
+<video controls muted playsinline preload="metadata" src="/uploads/starquix-demo-v9.mp4"></video>
+
+Nothing explains the rest of the features better than this video, but I'll write them down anyway. In Starquix you create a website visually, like in modern design editors. It has a terminal where you can run an agent, it accepts an API key, and it has SEO settings and content collections, so you can create blogs. Every change writes actual code to an Astro folder on your machine. Styling is done with Tailwind. And it deploys to Cloudflare, GitHub, Netlify and Vercel. Ah, and you can upload themes too, but with AI that's kinda obsolete.
+
+Shout-out to Nikita, who made the POC of this thing two years ago.

@@ -1,0 +1,7 @@
+/* sq-base: margins never collapse (Starquix layout law) */
+:where(body, main, section, article, aside, header, footer, nav, div, form, figure, blockquote, fieldset, details) { display: flow-root; }
+:root {
+}
+
+[data-mode="dark"] {
+}

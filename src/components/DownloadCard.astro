@@ -1,0 +1,24 @@
+---
+// Download box for posts. Paper sheet + handwritten font from vocable; X mark from starquix desktop/build/icon.html.
+type Props = { href: string; title: string; label?: string; button?: string };
+const { href, title, label = ".dmg", button = "Download from" } = Astro.props;
+---
+<div class="not-prose group my-10 flex items-center gap-6">
+    <span class="relative block h-28 w-[90px] shrink-0">
+        <span class="absolute inset-0 transition-transform duration-300 ease-out -rotate-1 group-has-[.dl-btn:hover]:-translate-y-1 group-has-[.dl-btn:hover]:rotate-0">
+            <span class="flex h-full w-full flex-col items-center justify-center gap-2 rounded-sm border-t border-white bg-neutral-50 shadow-md">
+                <svg class="h-9 w-9 text-gray-400" viewBox="64.539 6.404 18.335 18.314" fill="none" aria-hidden="true">
+                    <path d="M71.7541 13.5744L67.5225 10.4307L70.6748 14.6851C71.2121 15.4101 71.1972 16.4052 70.6386 17.1139L65.039 24.2177L72.1498 18.627C72.8592 18.0693 73.8543 18.0557 74.5787 18.5938L78.8291 21.7515L75.6907 17.5159C75.1469 16.7821 75.1694 15.7731 75.7453 15.0642L82.3739 6.90447L74.2059 13.5229C73.4963 14.0979 72.4873 14.1191 71.7541 13.5744Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round"/>
+                </svg>
+                <span class="font-['GCHandwritten'] text-xs lowercase tracking-wider text-gray-400">{label}</span>
+            </span>
+        </span>
+    </span>
+    <span class="min-w-0 flex-1">
+        <a href={href} class="block text-lg !text-gray-900 !no-underline">{title}</a>
+        <a href={href} class="dl-btn mt-3 inline-flex items-center gap-1.5 rounded-full bg-sky-300 px-3.5 py-1.5 text-xs font-medium !text-sky-900 !no-underline transition-colors hover:bg-sky-400">
+            {button}
+            <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+    </span>
+</div>
