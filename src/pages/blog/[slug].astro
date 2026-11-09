@@ -9,6 +9,6 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<PostLayout post={post} showSubtitle={false} showAuthor={false} showCover={false}>
+<PostLayout mainClass="w-full bg-slate-50 px-6 pt-8 md:pt-4" post={post} showSubtitle={false} showAuthor={false} showCover={false}>
   <Content />
 </PostLayout>

@@ -6,7 +6,7 @@ import '../styles.css';
 import { Image } from "astro:assets"
 import '../styles/sq-variables.css';
 
-interface Props {
+interface Props { bodyClass?: string;
 	title: string;
 	description?: string;
 	image?: string;
@@ -37,7 +37,7 @@ const { title, description = "Designs for user delight and company profit", imag
 		<ClientRouter />
 		<script defer data-domain="mayhopar.com" src="https://plausible.io/js/script.js"></script>
 	</head>
-	<body class="font-['SuisseIntl']">
+	<body class={Astro.props.bodyClass ?? "font-['SuisseIntl'] px-0"}>
 		<Back href={backHref} />
 		<slot/>
 	</body>
