@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry, render } from "astro:content";
 import Post from "../../layouts/Post.astro";
 import WorkPost from "../../components/WorkPost.astro";
 import { Image } from "astro:assets"
@@ -9,7 +9,7 @@ export const getStaticPaths = async () => {
     const paths = works.map(work => {
         return {
             params: {
-                slug: work.slug
+                slug: work.id
             },
             props: {
                 work
@@ -24,7 +24,7 @@ type Props = {
 }
     
 const {work} = Astro.props;
-const {Content} = await work.render();
+const {Content} = await render(work);
 ---
 
 <Post title={work.data.title} description={work.data.description}>

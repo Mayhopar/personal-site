@@ -18,3 +18,11 @@
     font-weight: 700;
     src: url("fonts/SuisseIntl-Bold.ttf") format("truetype");
 }
+/* Handwritten font, copied from vocable (public/fonts/myfont.*, v1.100) */
+@font-face {
+    font-family: "GCHandwritten";
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/myfont.woff2?v=1.100") format("woff2"),
+        url("/fonts/myfont.otf?v=1.100") format("opentype");
+}

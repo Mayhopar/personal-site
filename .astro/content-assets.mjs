@@ -1,0 +1,10 @@
+
+import __ASTRO_IMAGE_IMPORT_0 from "./images/Glowgreen/Cover.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FOlder.mdx";
+import __ASTRO_IMAGE_IMPORT_1 from "./images/Glowgreen/Cover.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FOther.mdx";
+import __ASTRO_IMAGE_IMPORT_2 from "./images/Gulfstream/Gulfstream.png?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FGulfstream.mdx";
+import __ASTRO_IMAGE_IMPORT_3 from "./images/Inito/cover.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FInito.mdx";
+import __ASTRO_IMAGE_IMPORT_4 from "./images/NetBeez/NetbeezCover.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FNetbeez-Redesign.mdx";
+import __ASTRO_IMAGE_IMPORT_5 from "./images/PetcubeTracker/PetcubeTracker.png?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FPetcubeTracker.mdx";
+import __ASTRO_IMAGE_IMPORT_6 from "./images/Timepad/Timepad.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FTimepad-Redesign.mdx";
+export default new Map([["./images/Glowgreen/Cover.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FOlder.mdx", __ASTRO_IMAGE_IMPORT_0], ["./images/Glowgreen/Cover.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FOther.mdx", __ASTRO_IMAGE_IMPORT_1], ["./images/Gulfstream/Gulfstream.png?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FGulfstream.mdx", __ASTRO_IMAGE_IMPORT_2], ["./images/Inito/cover.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FInito.mdx", __ASTRO_IMAGE_IMPORT_3], ["./images/NetBeez/NetbeezCover.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FNetbeez-Redesign.mdx", __ASTRO_IMAGE_IMPORT_4], ["./images/PetcubeTracker/PetcubeTracker.png?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FPetcubeTracker.mdx", __ASTRO_IMAGE_IMPORT_5], ["./images/Timepad/Timepad.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fworks%2FTimepad-Redesign.mdx", __ASTRO_IMAGE_IMPORT_6]]);
+		

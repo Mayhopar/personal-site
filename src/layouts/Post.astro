@@ -1,6 +1,6 @@
 ---
 import Back from "../components/Back.astro";
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import '../fonts.css';
 import '../styles.css';
 import { Image } from "astro:assets"
@@ -34,7 +34,7 @@ const { title, description = "Designs for user delight and company profit", imag
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={image} />
-		<ViewTransitions />
+		<ClientRouter />
 		<script defer data-domain="mayhopar.com" src="https://plausible.io/js/script.js"></script>
 	</head>
 	<body class="font-['SuisseIntl']">
