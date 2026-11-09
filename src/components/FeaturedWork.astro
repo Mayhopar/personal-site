@@ -8,7 +8,7 @@ type Props = {
 
 const {work} = Astro.props
 ---
-<article class="w-full
+<article id={work.id} class="scroll-mt-24 w-full
 mt-[16vh]
 mb-20
 lg:hover:scale-[1.01] 
@@ -53,9 +53,12 @@ duration-150
                 w-fit
                 text-gray-900 
                 2xl:mb-0
-                2xl:mt-7"
+                2xl:mt-7
+                relative"
                     transition:name={"title:" + work.data.title}>
                     {work.data.title}
+                    <!-- Hidden year inside the title; matches the work page so the transition only fades it in. -->
+                    <span class="year hidden absolute right-full top-1 mr-4 whitespace-nowrap text-xs leading-5 font-normal text-transparent lg:block 2xl:top-[5px] 2xl:text-sm">{work.data.year}</span>
                 </h1>
                 <p class="description
                 text-gray-700 
@@ -77,28 +80,7 @@ duration-150
                 transition:name={"role:" + work.data.title}>
                     {work.data.role}
                 </p>
-                <p class="year
-                w-fit
-                h-fit
-                text-right
-                text-xs
-                !m-0 
-                leading-5
-                top-[22px]
-                right-[495px]
-                text-nowrap
-                text-transparent
-                lg:absolute
-                lg:top-[20px]
-                lg:right-[498px]
-                lg:text-nowrap
-                lg:text-right
-
-                2xl:text-sm
-                2xl:m-0
-                2xl:top-[33px]
-                2xl:right-[496px]"
-                transition:name={"year:" + work.data.title}>
+                <p class="year w-fit h-fit text-xs !m-0 leading-5 text-nowrap text-transparent lg:hidden">
                     {work.data.year}
                 </p>
             </div>

@@ -9,7 +9,7 @@ type Props = {
 const {work} = Astro.props;
 
 ---
-<article class="lg:hover:scale-[1.015] transition-all">
+<article id={work.id} class="scroll-mt-24 lg:hover:scale-[1.015] transition-all">
     <a
         href={`/works/${work.id}/`}
         class="px-2 group"

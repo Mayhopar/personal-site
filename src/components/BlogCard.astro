@@ -19,12 +19,19 @@ const dateText = isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-US', {
 const fields = {
   'blog': { title: 'title', subtitle: 'subtitle' },
 };
+// Same count as PostLayout so the hidden read time has the post page's width.
+const words = String((post as any).body ?? '').replace(/^(import|export)\s.*$/gm, ' ').replace(/<[^>]*>/g, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+const readingText = words ? `${Math.max(1, Math.round(words / 230))} min read` : null;
 const f = (slot: string): any => { const s = (fields as Record<string, Record<string, string | null>>)[(post as any).collection]; const k = s ? s[slot] : slot; return k && k[0] !== '!' ? (post.data as Record<string, any>)[k] : undefined; };
 ---
 <article class="group lg:hover:scale-[1.015] transition-all">
   <div class="flex flex-col">
     <h3 class="font-semibold text-gray-900 mt-0 mb-0 w-fit" transition:name={"post-title:" + post.data.title}>{f('title')}</h3>
     {f('subtitle') && <p class="text-sm w-fit" transition:name={"post-subtitle:" + post.data.title}>{f('subtitle')}</p>}
-    <time class="text-gray-400 text-xs leading-5 m-0 block w-fit" transition:name={"post-date:" + post.data.title} datetime={isNaN(date.getTime()) ? undefined : date.toISOString()}>{post.data.date && new Date(post.data.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time>
+    <!-- Hidden read time inside the date row; matches the post page so the transition only fades it in. -->
+    <div class="flex w-fit items-center gap-x-3 text-gray-400 text-xs leading-5 m-0" transition:name={"post-date:" + post.data.title}>
+      <time datetime={isNaN(date.getTime()) ? undefined : date.toISOString()}>{dateText}</time>
+      {readingText && <span aria-hidden="true" class="inline-flex items-center gap-3 whitespace-nowrap text-transparent"><span>·</span><span>{readingText}</span></span>}
+    </div>
   </div>
 </article>
