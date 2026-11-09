@@ -2,6 +2,8 @@
 import Header from "../components/Header.astro";
 import { ClientRouter } from 'astro:transitions';
 import '../fonts.css';
+import fontRegular from '../fonts/SuisseIntl-Regular.woff2?url';
+import fontSemiBold from '../fonts/SuisseIntl-SemiBold.woff2?url';
 import '../styles/sq-variables.css';
 
 interface Props { bodyClass?: string;
@@ -17,6 +19,8 @@ const { title, description = "Designs for user delight and company profit", imag
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<link rel="preload" href={fontRegular} as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href={fontSemiBold} as="font" type="font/woff2" crossorigin />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="keywords" content="design, ui, ux, b2b, b2c, saas">
