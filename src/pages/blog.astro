@@ -12,7 +12,7 @@ const posts = (await getCollection('blog', (p) => !p.data.draft))
   <Main>
   <BlogSlot>
     <Fragment slot="posts">
-      {posts.map((post) => <a href={`/blog/${post.id}`} class="block" data-sq-post-slug={post.id}><BlogCard post={post} /></a>)}
+      {posts.map((post) => <a href={`/blog/${post.id}/`} class="block" data-sq-post-slug={post.id}><BlogCard post={post} /></a>)}
     </Fragment>
   </BlogSlot>
   </Main>
