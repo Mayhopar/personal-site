@@ -5,14 +5,14 @@ import Layout from '../layouts/Main.astro';
 import Main from '../components/Main.astro';
 import BlogCard from '../components/BlogCard.astro';
 const posts = (await getCollection('blog', (p) => !p.data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
 ---
 
 <Layout title="Oleg Mayhopar | Blog">
   <Main>
   <BlogSlot>
     <Fragment slot="posts">
-      {posts.map((post) => <a href={`/blog/${post.id}/`} class="block" data-sq-post-slug={post.id}><BlogCard post={post} /></a>)}
+      {posts.map((post) => <a href={`/blog/${post.id}`} class="block" data-sq-post-slug={post.id}><BlogCard post={post} /></a>)}
     </Fragment>
   </BlogSlot>
   </Main>
